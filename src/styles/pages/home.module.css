@@ -1,0 +1,20 @@
+.container {
+  @apply bg-[#005b30] h-screen w-screen;
+}
+
+.logoWrapper {
+    @apply flex justify-center; 
+    padding: 30px 30px 0px;
+}
+
+.logo {
+  @apply h-[50px]
+}
+
+.sections {
+  @apply bg-white flex min-h-[450px] m-[40px] p-[40px] rounded;
+
+  div {
+    width: 50%;
+  }
+}
