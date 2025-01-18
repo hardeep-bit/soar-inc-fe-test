@@ -1,3 +1,4 @@
+import { fetchUserCardList } from "../../services/card";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
 const cardReducer = createReducer({
@@ -10,11 +11,11 @@ const cardReducer = createReducer({
       state.cardList = action.payload.cardList
     },
   },
-  // extraReducers: (builder => {
-  //   builder.addCase(fetchUserData.fulfilled, (state, action) => {
-  //     state.user = action.payload;
-  //   })
-  // })
+  extraReducers: (builder => {
+    builder.addCase(fetchUserCardList.fulfilled, (state, action) => {
+      state.cardList = action.payload;
+    })
+  })
 })
 
 export const { setCardList } = cardReducer.actions

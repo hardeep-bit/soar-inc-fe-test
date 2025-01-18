@@ -4,14 +4,16 @@ const userCardList = [{
   currency: '$',
   cardHolderName: 'Hardeep Singh',
   validTill: '11/29',
-  cardNumeber: '1233 **** **** 9128',
+  cardNumber: '1233 **** **** 9128',
+  isGradient: true,
 }, {
   id: '56beeeb9-0f59-432a-bed1-73a3cf598001', // temp uuid
   balance: '1099',
   currency: '$',
   cardHolderName: 'Hardeep Singh',
   validTill: '11/28',
-  cardNumeber: '6626 **** **** 9162',
+  cardNumber: '6626 **** **** 9162',
+  isGradient: false,
 },]
 
 export default userCardList;

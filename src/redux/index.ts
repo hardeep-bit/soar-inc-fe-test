@@ -17,9 +17,14 @@ const store = configureStore({
     balance: balancesReducer,
     moneyTranser: moneyTranserReducer
   },
-  middleware: (presetMiddleware => {
-    return presetMiddleware()
-  })
-}).subscribe
+  // middleware: (presetMiddleware => {
+  //   return presetMiddleware()
+  // })
+})
 
 export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+// export type RootState = ReturnType<typeof store.getState>;
+// export type AppDispatch = typeof store.dispatch;

@@ -1,4 +1,4 @@
-import { fetchUserData } from "@/services/user";
+import { fetchUserData } from "../../services/user";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
 const userReducer = createReducer({
