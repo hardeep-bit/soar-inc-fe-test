@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded';
 import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
 import PriceChangeRoundedIcon from '@mui/icons-material/PriceChangeRounded';
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
