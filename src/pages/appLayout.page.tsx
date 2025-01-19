@@ -60,7 +60,7 @@ const AppLayout = () => {
   }, {
     id: 'setting',
     navLabel: 'Setting',
-    appHeadLabel: 'Overview',
+    appHeadLabel: 'Setting',
     getIcon: (isActive: boolean) => <SettingsRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
   }]
 
@@ -72,6 +72,7 @@ const AppLayout = () => {
     if (location.pathname === '/dashboard') {
       setActiveAppNavigation(appNavigations[0])
     } else if (location.pathname === '/setting') {
+      debugger
       setActiveAppNavigation(appNavigations[appNavigations.length - 1])
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,13 +91,13 @@ const AppLayout = () => {
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 border-r-[1px] border-gray-100">
-        <div className='flex p-4 justify-center items-center'>
-          <h1 className='text-2xl font-extrabold text-gray-700'>
+        <div className='flex py-4 justify-center items-center h-[100px]'>
+          <h1 className='text-[25px] font-extrabold text-gray-700 '>
             <AssignmentTurnedInIcon sx={{ fontSize: 30 }} className='mt-[-4px] text-black' />
             <span className='pl-[13px]'>Soar Test</span>
           </h1>
         </div>
-        <div className='mt-4'>
+        <div className=''>
           {appNavigations.map(appNavigation => (
             <div key={appNavigation.id} className={`p-[15px] pl-[25px] cursor-pointer
               ${activeAppNavigation.id === appNavigation.id ? 'bg-gray-50 border-l-4 border-black font-bold' : 'text-gray-400 border-l-4 border-white'} 

@@ -1,11 +1,34 @@
 #header {
-  @apply flex justify-between;
+  @apply flex justify-between h-[100px];
 }
 
 #searchInput {
+  @apply mr-4;
   background-color: #f3f3f3;
-  padding: 10px 20px 10px 15px;
-  font-size: 12px;
+  padding: 10px 20px 10px 35px;
+  font-size: 15px;
   border-radius: 4rem;
-  outline:none;
+  outline: none;
+}
+
+#settingsIcon {
+  background-color: #f5f7fa;
+  padding: 7px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#notificationsIcon {
+  margin-left: 20px;
+  background-color: #f5f7fa;
+  padding: 7px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#avatarIcon {
+  margin-left: 20px;
+  border-radius: 50%;
+  border: 2px solid #f5f7fa;
+  cursor: pointer;
 }

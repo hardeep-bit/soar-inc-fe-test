@@ -15,8 +15,6 @@ const Dashboard = () => {
   const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
 
   useEffect(() => {
-    // console.log('fetchhhh');
-
     dispatch(fetchUserData())
     dispatch(fetchUserCardList(2))
     dispatch(fetchRecentTransactions(3))

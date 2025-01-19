@@ -12,7 +12,6 @@ root.render(
   <Provider store={reduxStore}>
     <React.StrictMode>
       <BrowserRouter>
-
         <AppRoutes />
       </BrowserRouter>
     </React.StrictMode>
