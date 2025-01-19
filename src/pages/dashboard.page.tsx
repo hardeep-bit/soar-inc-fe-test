@@ -7,6 +7,7 @@ import TransactionListComponent from '../components/transactionList.component';
 import { fetchRecentTransactions } from '../services/transaction';
 import { fetchUserData } from '../services/user';
 import BarChart from '../components/weeklyActivity.component';
+import ExpensePieChart from '../components/expense.component';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -28,8 +29,9 @@ const Dashboard = () => {
         <CardListComponent cardList={cardList} />
         <TransactionListComponent recentTransactions={recentTransactions} />
       </div>
-      <div className='p-4'>
+      <div className='flex gap-8 p-4'>
         <BarChart />
+        <ExpensePieChart />
       </div>
     </div>
   )

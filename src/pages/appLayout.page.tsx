@@ -112,7 +112,7 @@ const AppLayout = () => {
 
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main id={styles.appLayout} className="flex-1 p-4">
+        <main id={styles.appLayout} className="flex-1 p-4 overflow-y-auto">
           <Outlet />
         </main>
       </div>

@@ -55,6 +55,12 @@ const BarChart = () => {
           usePointStyle: true,
         },
       },
+      tooltip: {
+        enabled: true,
+      },
+      datalabels: {
+        display: false,
+      }
     },
     scales: {
       x: {
@@ -80,8 +86,13 @@ const BarChart = () => {
   };
 
   return (
-    <div id={styles.weeklyActivitySection}>
-      <Bar data={data} options={options as object} />
+    <div className=" text-gray-700 ">
+      <div className="text-[18px] font-semibold mb-4">
+        <h4>Weekly Activity</h4>
+      </div>
+      <div id={styles.weeklyActivitySection}>
+        <Bar data={data} options={options as object} />
+      </div>
     </div>
   );
 };
