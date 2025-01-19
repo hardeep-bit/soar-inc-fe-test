@@ -1,0 +1,13 @@
+#quickTransferSection {
+  width: 425px;
+  height: 276px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px 15px;
+}
+
+.avatarIcon {
+  border: 2px solid #f5f7fa;
+  margin-bottom: 10px;
+}
+

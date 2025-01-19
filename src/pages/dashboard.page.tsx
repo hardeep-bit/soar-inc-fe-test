@@ -8,16 +8,20 @@ import { fetchRecentTransactions } from '../services/transaction';
 import { fetchUserData } from '../services/user';
 import BarChart from '../components/weeklyActivity.component';
 import ExpensePieChart from '../components/expense.component';
+import QuickTransferComponent from '../components/quickTransfer.component';
+import { fetchTransferToList } from '../services/moneyTransfer';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
   const cardList = useSelector((state: any) => state.card.cardList);
   const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
+  const tranferToList = useSelector((state: any) => state.moneyTransfer.tranferToList);
 
   useEffect(() => {
     dispatch(fetchUserData())
     dispatch(fetchUserCardList(2))
     dispatch(fetchRecentTransactions(3))
+    dispatch(fetchTransferToList(3))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -30,6 +34,9 @@ const Dashboard = () => {
       <div className='flex gap-8 p-4'>
         <BarChart />
         <ExpensePieChart />
+      </div>
+      <div className='flex gap-8 p-4'>
+        <QuickTransferComponent tranferToList={tranferToList} />
       </div>
     </div>
   )

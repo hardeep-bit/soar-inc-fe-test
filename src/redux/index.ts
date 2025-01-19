@@ -15,7 +15,7 @@ const store = configureStore({
     activity: activityReducer,
     expense: expensesReducer,
     balance: balancesReducer,
-    moneyTranser: moneyTranserReducer
+    moneyTransfer: moneyTranserReducer
   },
   // middleware: (presetMiddleware => {
   //   return presetMiddleware()

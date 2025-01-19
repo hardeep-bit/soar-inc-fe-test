@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import userMockData from "../mockData/user";
+import tranferToList from "../mockData/moneyTransfer";
 
-export const fetchTransferToList = createAsyncThunk<any>('user/fetchUserList', () => {
+export const fetchTransferToList = createAsyncThunk<any, number>('moneyTransfer/fetchTransferToList', (limit = 3) => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      return res(userMockData)
+      return res(tranferToList.slice(0, limit))
     }, 1000);
   })
 })

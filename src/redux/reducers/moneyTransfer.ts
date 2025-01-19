@@ -1,22 +1,23 @@
+import { fetchTransferToList } from "../../services/moneyTransfer";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
-const cardReducer = createReducer({
-  name: 'card',
+const moneyTransferReducer = createReducer({
+  name: 'moneyTransfer',
   initialState: {
-    cardList: []
+    tranferToList: []
   },
   reducers: {
-    setCardList: (state, action) => {
-      state.cardList = action.payload.cardList
+    tranferToList: (state, action) => {
+      state.tranferToList = action.payload
     },
   },
-  // extraReducers: (builder => {
-  //   builder.addCase(fetchUserData.fulfilled, (state, action) => {
-  //     state.user = action.payload;
-  //   })
-  // })
+  extraReducers: (builder => {
+    builder.addCase(fetchTransferToList.fulfilled, (state, action) => {
+      state.tranferToList = action.payload;
+    })
+  })
 })
 
-export const { setCardList } = cardReducer.actions
+export const { tranferToList } = moneyTransferReducer.actions
 
-export default cardReducer.reducer
+export default moneyTransferReducer.reducer
