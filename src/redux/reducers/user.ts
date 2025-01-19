@@ -4,16 +4,16 @@ import { createSlice as createReducer } from "@reduxjs/toolkit";
 const userReducer = createReducer({
   name: 'user',
   initialState: {
-    user: {}
+    loginUser: {}
   },
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload
+      state.loginUser = action.payload
     },
   },
   extraReducers: (builder => {
     builder.addCase(fetchUserData.fulfilled, (state, action) => {
-      state.user = action.payload; 
+      state.loginUser = action.payload; 
     })
   })
 })

@@ -1,0 +1,7 @@
+#transactionListSection {
+  @apply p-4;
+  width: 400px;
+  height: 210px;
+  background-color: white;
+  border-radius: 15px;
+}

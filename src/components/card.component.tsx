@@ -5,7 +5,7 @@ import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 
 const CardComponent = (props: any) => {
   const { cardDetails } = props;
-  const { balance, cardHolderName, validTill, cardNumber, isGradient, currency } = cardDetails;
+  const { balance, cardHolderName, validTill, cardNumber, isGradient, currency, id } = cardDetails;
   const gradientClass = isGradient ? styles.blackGradientCard : styles.plainCard
   const cardFooterClass = isGradient ? styles.gradientCardFooter : styles.plainCardFooter
 

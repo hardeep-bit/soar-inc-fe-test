@@ -24,11 +24,7 @@ const CardListComponent = (props: any) => {
         </div>
       </div>
       <div id={styles.cardListSection}>
-        {cardList.map((cardDetails: any) => {
-          return (
-            <CardComponent cardDetails={cardDetails} />
-          );
-        })}
+        {cardList.map((cardDetails: any) => <CardComponent key={cardDetails.id} cardDetails={cardDetails} />)}
       </div>
     </div>
   );

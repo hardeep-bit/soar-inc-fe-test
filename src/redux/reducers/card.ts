@@ -8,7 +8,7 @@ const cardReducer = createReducer({
   },
   reducers: {
     setCardList: (state, action) => {
-      state.cardList = action.payload.cardList
+      state.cardList = action.payload
     },
   },
   extraReducers: (builder => {

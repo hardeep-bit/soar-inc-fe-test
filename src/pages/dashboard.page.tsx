@@ -2,23 +2,34 @@ import { useEffect } from 'react';
 import CardListComponent from '../components/cardList.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserCardList } from '../services/card';
-import { AppDispatch } from '@/redux';
+import { AppDispatch } from '../redux';
+import TransactionListComponent from '../components/transactionList.component';
+import { fetchRecentTransactions } from '../services/transaction';
+import { fetchUserData } from '../services/user';
+import BarChart from '../components/weeklyActivity.component';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
   const cardList = useSelector((state: any) => state.card.cardList);
+  const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
 
   useEffect(() => {
-    console.log('fetchhhh');
-    
-    dispatch(fetchUserCardList())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // console.log('fetchhhh');
+
+    dispatch(fetchUserData())
+    dispatch(fetchUserCardList(2))
+    dispatch(fetchRecentTransactions(3))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div>
-      <div className='flex p-2'>
+      <div className='flex p-2 gap-8'>
         <CardListComponent cardList={cardList} />
+        <TransactionListComponent recentTransactions={recentTransactions} />
+      </div>
+      <div className='p-4'>
+        <BarChart />
       </div>
     </div>
   )

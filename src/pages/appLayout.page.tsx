@@ -12,6 +12,10 @@ import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 import CardTravelRoundedIcon from '@mui/icons-material/CardTravelRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
+//@ts-ignore
+import styles from "../styles/pages/AppLayout.module.css";
+
+
 const AppLayout = () => {
   const appNavigations = [{
     id: 'dashboard',
@@ -108,7 +112,7 @@ const AppLayout = () => {
 
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main className="flex-1 p-4">
+        <main id={styles.appLayout} className="flex-1 p-4">
           <Outlet />
         </main>
       </div>

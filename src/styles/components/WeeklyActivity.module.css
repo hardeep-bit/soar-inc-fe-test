@@ -1,0 +1,7 @@
+#weeklyActivitySection {
+  @apply p-6;
+  width: 718px;
+  background-color: white;
+  border-radius: 15px;
+  margin-left: -5px;
+}

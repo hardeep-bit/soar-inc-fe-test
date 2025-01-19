@@ -1,22 +1,24 @@
+import { fetchRecentTransactions } from "../../services/transaction";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
-const cardReducer = createReducer({
-  name: 'card',
+const transactionReducer = createReducer({
+  name: 'transaction',
   initialState: {
-    cardList: []
+    recentTransactions: []
   },
   reducers: {
-    setCardList: (state, action) => {
-      state.cardList = action.payload.cardList
+    setRecentTransactions: (state, action) => {
+      state.recentTransactions = action.payload
     },
   },
-  // extraReducers: (builder => {
-  //   builder.addCase(fetchUserData.fulfilled, (state, action) => {
-  //     state.user = action.payload;
-  //   })
-  // })
+  extraReducers: (builder => {
+    builder.addCase(fetchRecentTransactions.fulfilled, (state, action) => {
+      debugger
+      state.recentTransactions = action.payload;
+    })
+  })
 })
 
-export const { setCardList } = cardReducer.actions
+export const { setRecentTransactions } = transactionReducer.actions
 
-export default cardReducer.reducer
+export default transactionReducer.reducer
