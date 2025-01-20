@@ -10,6 +10,7 @@ import BarChart from '../components/weeklyActivity.component';
 import ExpensePieChart from '../components/expense.component';
 import QuickTransferComponent from '../components/quickTransfer.component';
 import { fetchTransferToList } from '../services/moneyTransfer';
+import BalanceHistoryComponent from '../components/balanceHistory.component';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,6 +22,8 @@ const Dashboard = () => {
     dispatch(fetchUserData())
     dispatch(fetchUserCardList(2))
     dispatch(fetchRecentTransactions(3))
+    // bar chart
+    // pie chart
     dispatch(fetchTransferToList(3))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -37,6 +40,7 @@ const Dashboard = () => {
       </div>
       <div className='flex gap-8 p-4'>
         <QuickTransferComponent tranferToList={tranferToList} />
+        <BalanceHistoryComponent />
       </div>
     </div>
   )

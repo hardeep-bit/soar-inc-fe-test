@@ -1,0 +1,11 @@
+#balanceHistorySection {
+  width: 683px;
+  height: 276px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+
+  canvas {
+    width: 100% !important;
+  }
+}

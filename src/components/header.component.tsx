@@ -30,7 +30,7 @@ const HeaderComponent = (props: any) => {
       </h1>
       <div className="flex justify-center items-center">
         <div className="relative flex items-center">
-          <SearchIcon className="absolute ml-[0px]" sx={{ fontSize: 20, color: "#718EBF" }} />
+          <SearchIcon className="absolute ml-[10px]" sx={{ fontSize: 20, color: "#718EBF" }} />
           <input
             value={searchedText}
             onChange={onChangeHandler}
