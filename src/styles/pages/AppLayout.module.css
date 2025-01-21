@@ -1,3 +1,9 @@
 #appLayout {
-  background-color: #F5F7FA;  
+  background-color: #f5f7fa;
+}
+
+.navBarCollapsedActive {
+  @apply border-r-[1px] border-gray-100 transition-all duration-300 ease-in-out;
+  transition: width 1s ease-in-out;
+  z-Index:1
 }
