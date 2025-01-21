@@ -21,7 +21,7 @@ const TransactionListComponent = () => {
     return (
       <Avatar sx={{ bgcolor: bgColor }} variant="rounded">
         {(via === 'debitcard' || via === 'creditcard') && <CreditCardIcon />}
-        {(via === 'cash') && <MoneyIcon />}
+        {(via === 'cash' || via === 'soar') && <MoneyIcon />}
         {(via === 'wallet') && <AccountBalanceWalletIcon />}
       </Avatar>
     )
@@ -29,8 +29,9 @@ const TransactionListComponent = () => {
 
   const getTransactionHeader = ({ actionVia, action, via }: any) => {
     if (actionVia.id === loginUser.id) {
-      const viaLabel = via === 'creditcard' ? 'Credit Card' : 'Debit Card';
-      if (action === 'debit') return `Debited from my ${viaLabel}`
+      if (action === 'debit' && via === 'creditcard') return 'Debited from my Credit Card';
+      else if (action === 'debit' && via === 'debitcard') return 'Debited from my Debit Card';
+      else if (action === 'debit' && via === 'soar') return `Debited from my Soar`
     } else if (actionVia.name === 'Paypal') {
       if (action === 'debit') return `Paypal Debited`
       if (action === 'credit') return `Deposit Paypal`

@@ -13,6 +13,11 @@ export const formatDate = (inputDate: any) => {
   return `${day} ${month} ${year}`;
 };
 
+export const getCurrentFormattedDate = () => {
+  const date = new Date();
+  return date.toISOString();
+};
+
 export const truncateString = (input: string): string => {
   if (input.length <= 11) {
     return input;

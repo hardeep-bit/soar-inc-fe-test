@@ -6,8 +6,10 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import NotificationAddOutlinedIcon from '@mui/icons-material/NotificationAddOutlined';
 import { Avatar } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import { useSelector } from "react-redux";
 
 const HeaderComponent = (props: any) => {
+  const loginUser = useSelector((state: any) => state.user.loginUser);
   const { activeAppNavigation } = props;
   const [searchedText, setSearchedText] = useState('');
   const navigate = useNavigate();
@@ -44,11 +46,11 @@ const HeaderComponent = (props: any) => {
           <NotificationAddOutlinedIcon sx={{ fontSize: 25, color: "#396AFF" }} className={`mt-[-4px] text-gray-400 `} />
         </div>
         <div id={styles.avatarIcon}>
-          <Avatar
-            alt="Hardeep Singh"
-            src="https://media.istockphoto.com/id/483627817/photo/showing-off-his-pearly-whites.jpg?s=612x612&w=0&k=20&c=gk6aVVGp52YFx1ZzPVQplGc7JL5zkrfxQTuLjIn2RU8="
+          {loginUser && (<Avatar
+            alt={loginUser.name}
+            src={loginUser.displayPicture320pxURL}
             sx={{ width: 60, height: 60 }}
-          />
+          />)}
         </div>
       </div>
     </header>

@@ -1,8 +1,12 @@
 #cardListSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: inline-flex;
+  overflow-x: scroll;
+  overflow-y: none;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+}
+#cardListSection::-webkit-scrollbar {
+  display: none; 
 }
 
 .blackGradientCard {
@@ -31,8 +35,14 @@
   font-family: Arial, sans-serif;
 }
 
+.cardWrapper {
+  display: inline-flex;
+  margin-right: 20px;
+  width: 350px;
+}
+
 .card {
-  display: inline;
+  display: block;
 }
 
 .cardHeader {

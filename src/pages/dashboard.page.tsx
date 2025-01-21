@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchUserData())
-    dispatch(fetchUserCardList(2))
+    dispatch(fetchUserCardList(3))
     dispatch(fetchRecentTransactions(4))
     dispatch(fetchExpensesData())
     dispatch(fetchWeeklyActivity())

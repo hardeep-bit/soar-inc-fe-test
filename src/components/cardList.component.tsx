@@ -27,7 +27,10 @@ const CardListComponent = () => {
           See All
         </Button>
       </div>
-      <div id={styles.cardListSection}>
+      <div id={styles.cardListSection} style={{
+        maxWidth: '730px',
+        minWidth: '380px'
+      }}>
         {cardList.map((cardDetails: any) => <CardComponent key={cardDetails.id} cardDetails={cardDetails} />)}
       </div>
     </div>
