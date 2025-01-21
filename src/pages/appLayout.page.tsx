@@ -21,47 +21,47 @@ const AppLayout = () => {
     id: 'dashboard',
     navLabel: 'Dashboard',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <HomeRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <HomeRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'transactions',
     navLabel: 'Transaction',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <PriceChangeRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <PriceChangeRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'accounts',
     navLabel: 'Accounts',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <Person2RoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <Person2RoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'investments',
     navLabel: 'Investments',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <MoneyRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <MoneyRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'creditCards',
     navLabel: 'Credit Cards',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <CreditCardRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <CreditCardRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'loans',
     navLabel: 'Loans',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <PriceCheckRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <PriceCheckRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'services',
     navLabel: 'Services',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <ConstructionRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <ConstructionRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'myPrivileges',
     navLabel: 'My Privileges',
     appHeadLabel: 'Overview',
-    getIcon: (isActive: boolean) => <CardTravelRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <CardTravelRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }, {
     id: 'setting',
     navLabel: 'Setting',
     appHeadLabel: 'Setting',
-    getIcon: (isActive: boolean) => <SettingsRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-black' : 'text-gray-400'} `} />
+    getIcon: (isActive: boolean) => <SettingsRoundedIcon sx={{ fontSize: 24 }} className={`mt-[-4px] ${isActive ? 'text-primary' : 'text-gray-400'} `} />
   }]
 
   const location = useLocation();
@@ -88,24 +88,27 @@ const AppLayout = () => {
     }
   };
 
+
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 border-r-[1px] border-gray-100">
         <div className='flex py-4 justify-center items-center h-[100px]'>
           <h1 className='text-[25px] font-extrabold text-gray-700 '>
-            <AssignmentTurnedInIcon sx={{ fontSize: 30 }} className='mt-[-4px] text-black' />
+            <AssignmentTurnedInIcon sx={{ fontSize: 30 }} className='mt-[-4px] text-primary' />
             <span className='pl-[13px]'>Soar Test</span>
           </h1>
         </div>
         <div className=''>
           {appNavigations.map(appNavigation => (
-            <div key={appNavigation.id} className={`p-[15px] pl-[25px] cursor-pointer
-              ${activeAppNavigation.id === appNavigation.id ? 'bg-gray-50 border-l-4 border-black font-bold' : 'text-gray-400 border-l-4 border-white'} 
-              `} id={appNavigation.id} onClick={handleNavigation}>
-              {appNavigation.getIcon(activeAppNavigation.id === appNavigation.id)}
-              <span className='pl-[10px]'>
-                {appNavigation.navLabel}
-              </span>
+            <div className={`cursor-pointer flex ${activeAppNavigation.id === appNavigation.id ? 'text-primary bg-gray-50  font-bold' : ''}`}>
+              <div className={`h-[54px] w-[6px] rounded-r-[10px] rounded-br-[10px] ${activeAppNavigation.id === appNavigation.id ? 'bg-primary' : ''}`}>
+              </div>
+              <div key={appNavigation.id} className={`p-[15px] pl-[25px]  text-gray-400 border-l-4 border-white`} id={appNavigation.id} onClick={handleNavigation}>
+                {appNavigation.getIcon(activeAppNavigation.id === appNavigation.id)}
+                <span className={`pl-[10px] ${activeAppNavigation.id === appNavigation.id ? 'text-primary bg-gray-50  font-bold' : ''}`}>
+                  {appNavigation.navLabel}
+                </span>
+              </div>
             </div>
           ))}
         </div>

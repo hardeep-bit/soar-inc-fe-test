@@ -34,7 +34,11 @@ const QuickTransferComponent = (props: any) => {
   }
 
   const onChangeAmount = (e: any) => {
-    setAmount(e.target.value);
+    const inputValue = e.target.value;
+
+    if (/^\d{0,10}$/.test(inputValue)) {
+      setAmount(inputValue);
+    }
   }
 
   return (
