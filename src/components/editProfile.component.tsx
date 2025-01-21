@@ -263,7 +263,6 @@ const EditProfileComponent = () => {
               value={passwordDetails.value}>
             </input>
             <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
-              {/* {passwordDetails.error || ''} */}
               {passwordDetails.error === "Password is invalid." ?
                 <span>It requires min, 3 lower case alphabets, 1 upper Case alphabet, 1 special character from !@$</span> :
                 <span>{passwordDetails.error}</span>}
