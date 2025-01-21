@@ -21,8 +21,8 @@ const ExpensePieChart = (props: any) => {
     datasets: [
       {
         data: Object.values(expensesData),
-        backgroundColor: ['#374151', '#396AFF', 'black', 'orange'],
-        hoverBackgroundColor: ['#374151', '#396AFF', 'black', 'orange'],
+        backgroundColor: ['#374151', '#396AFF', '#232323', '#FC7900'],
+        hoverBackgroundColor: ['#374151', '#396AFF', '#232323', '#FC7900'],
         borderWidth: 10,
         hoverBorderWidth: 1,
       },
