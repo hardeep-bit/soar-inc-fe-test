@@ -8,8 +8,8 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { useSelector } from "react-redux";
 import { formatDate } from "../helpers/utility";
 
-const TransactionListComponent = (props: any) => {
-  const { recentTransactions } = props;
+const TransactionListComponent = () => {
+  const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
   const loginUser = useSelector((state: any) => state.user.loginUser);
 
   const getLeftIcon = (via: string) => {
@@ -45,7 +45,7 @@ const TransactionListComponent = (props: any) => {
         <h4>Recent Transaction</h4>
       </div>
       <div id={styles.transactionListSection}>
-        {recentTransactions.map((transaction: any) => (
+        {recentTransactions?.map((transaction: any) => (
           <div key={transaction.id} className="flex items-center justify-between p-2">
             <div className="flex items-center">
               <div className="flex items-center justify-center h-10 w-10 rounded-full">

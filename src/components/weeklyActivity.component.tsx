@@ -11,17 +11,21 @@ import {
 
 // @ts-ignore
 import styles from "../styles/components/WeeklyActivity.module.css";
+import { useSelector } from "react-redux";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const BarChart = (props: any) => {
-  const { weeklyActivity } = props;
+const WeeklyActivityComponent = () => {
+  const weeklyActivity = useSelector((state: any) => state.activity.weeklyActivity);
+
+  if (!weeklyActivity) return <div>Loading Weekly Activity...</div>
+
   const data = {
-    labels: Object.keys(weeklyActivity.withdraw),
+    labels: Object.keys(weeklyActivity?.withdraw) || [],
     datasets: [
       {
         label: "Withdraw",
-        data: Object.values(weeklyActivity.withdraw),
+        data: Object.values(weeklyActivity?.withdraw) || [],
         backgroundColor: "black",
         borderWidth: 0,
         borderRadius: 20,
@@ -31,7 +35,7 @@ const BarChart = (props: any) => {
       },
       {
         label: "Deposit",
-        data: Object.values(weeklyActivity.deposit),
+        data: Object.values(weeklyActivity?.deposit) || [],
         backgroundColor: "#396AFF",
         borderWidth: 0,
         borderRadius: 20,
@@ -98,4 +102,4 @@ const BarChart = (props: any) => {
   );
 };
 
-export default BarChart;
+export default WeeklyActivityComponent;

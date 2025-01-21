@@ -1,26 +1,21 @@
 import { useEffect } from 'react';
 import CardListComponent from '../components/cardList.component';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchUserCardList } from '../services/card';
 import { AppDispatch } from '../redux';
 import TransactionListComponent from '../components/transactionList.component';
 import { fetchRecentTransactions } from '../services/transaction';
 import { fetchUserData } from '../services/user';
-import BarChart from '../components/weeklyActivity.component';
 import ExpensePieChart from '../components/expense.component';
 import QuickTransferComponent from '../components/quickTransfer.component';
 import { fetchTransferToList } from '../services/moneyTransfer';
 import BalanceHistoryComponent from '../components/balanceHistory.component';
 import { fetchWeeklyActivity } from '../services/activity';
 import { fetchExpensesData } from '../services/expense';
+import WeeklyActivityComponent from '../components/weeklyActivity.component';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const cardList = useSelector((state: any) => state.card.cardList);
-  const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
-  const tranferToList = useSelector((state: any) => state.moneyTransfer.tranferToList);
-  const weeklyActivity = useSelector((state: any) => state.activity.weeklyActivity);
-  const expensesData = useSelector((state: any) => state.expense.expensesData);
 
   useEffect(() => {
     dispatch(fetchUserData())
@@ -35,15 +30,15 @@ const Dashboard = () => {
   return (
     <div>
       <div className='flex p-2 gap-8'>
-        <CardListComponent cardList={cardList} />
-        <TransactionListComponent recentTransactions={recentTransactions} />
+        <CardListComponent />
+        <TransactionListComponent />
       </div>
       <div className='flex gap-8 p-4'>
-        {weeklyActivity && <BarChart weeklyActivity={weeklyActivity} />}
-        {expensesData && <ExpensePieChart expensesData={expensesData} />}
+        <WeeklyActivityComponent />
+        <ExpensePieChart />
       </div>
       <div className='flex gap-8 p-4'>
-        <QuickTransferComponent tranferToList={tranferToList} />
+        <QuickTransferComponent />
         <BalanceHistoryComponent />
       </div>
     </div>

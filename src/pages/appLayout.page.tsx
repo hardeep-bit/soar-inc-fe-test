@@ -72,7 +72,6 @@ const AppLayout = () => {
     if (location.pathname === '/dashboard') {
       setActiveAppNavigation(appNavigations[0])
     } else if (location.pathname === '/setting') {
-      debugger
       setActiveAppNavigation(appNavigations[appNavigations.length - 1])
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -88,7 +87,6 @@ const AppLayout = () => {
     }
   };
 
-
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 border-r-[1px] border-gray-100">
@@ -100,10 +98,10 @@ const AppLayout = () => {
         </div>
         <div className=''>
           {appNavigations.map(appNavigation => (
-            <div className={`cursor-pointer flex ${activeAppNavigation.id === appNavigation.id ? 'text-primary bg-gray-50  font-bold' : ''}`}>
+            <div key={appNavigation.id} className={`cursor-pointer flex ${activeAppNavigation.id === appNavigation.id ? 'text-primary bg-gray-50  font-bold' : ''}`}>
               <div className={`h-[54px] w-[6px] rounded-r-[10px] rounded-br-[10px] ${activeAppNavigation.id === appNavigation.id ? 'bg-primary' : ''}`}>
               </div>
-              <div key={appNavigation.id} className={`p-[15px] pl-[25px]  text-gray-400 border-l-4 border-white`} id={appNavigation.id} onClick={handleNavigation}>
+              <div className={`p-[15px] pl-[25px]  text-gray-400 border-l-4 border-white`} id={appNavigation.id} onClick={handleNavigation}>
                 {appNavigation.getIcon(activeAppNavigation.id === appNavigation.id)}
                 <span className={`pl-[10px] ${activeAppNavigation.id === appNavigation.id ? 'text-primary bg-gray-50  font-bold' : ''}`}>
                   {appNavigation.navLabel}

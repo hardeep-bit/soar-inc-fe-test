@@ -11,11 +11,14 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // @ts-ignore
 import styles from "../styles/components/Expense.module.css";
+import { useSelector } from 'react-redux';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title, ChartDataLabels);
 
-const ExpensePieChart = (props: any) => {
-  const { expensesData } = props;;
+const ExpensePieChart = () => {
+  const expensesData = useSelector((state: any) => state.expense.expensesData);
+  if (!expensesData) return <div>Loading Expenses...</div>
+
   const data = {
     labels: Object.keys(expensesData),
     datasets: [

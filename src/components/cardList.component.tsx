@@ -1,9 +1,10 @@
 //@ts-ignore
 import styles from "../styles/components/Card.module.css";
+import { useSelector } from "react-redux";
 import CardComponent from "./card.component";
 
-const CardListComponent = (props: any) => {
-  const { cardList } = props;
+const CardListComponent = () => {
+  const cardList = useSelector((state: any) => state.card.cardList);
 
   if (cardList.length === 0) {
     return (

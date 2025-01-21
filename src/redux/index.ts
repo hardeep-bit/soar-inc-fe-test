@@ -6,9 +6,11 @@ import activityReducer from "./reducers/activity";
 import expensesReducer from "./reducers/expense";
 import balancesReducer from "./reducers/balance";
 import moneyTranserReducer from "./reducers/moneyTransfer";
+import appReducer from "./reducers/app";
 
 const store = configureStore({
   reducer: {
+    app: appReducer,
     user: userReducer,
     card: cardsReducer,
     transaction: transactionsReducer,

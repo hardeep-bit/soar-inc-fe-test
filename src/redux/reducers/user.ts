@@ -4,7 +4,7 @@ import { createSlice as createReducer } from "@reduxjs/toolkit";
 const userReducer = createReducer({
   name: 'user',
   initialState: {
-    loginUser: {}
+    loginUser: null
   },
   reducers: {
     setUser: (state, action) => {
@@ -13,7 +13,7 @@ const userReducer = createReducer({
   },
   extraReducers: (builder => {
     builder.addCase(fetchUserData.fulfilled, (state, action) => {
-      state.loginUser = action.payload; 
+      state.loginUser = action.payload;
     })
   })
 })

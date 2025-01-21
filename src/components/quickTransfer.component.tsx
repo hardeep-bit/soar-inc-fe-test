@@ -5,6 +5,7 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import styles from "../styles/components/QuickTransfer.module.css";
 import { truncateString } from "../helpers/utility";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import { useSelector } from "react-redux";
 
 const QuickUserHeadView = (props: any) => {
   const { user, index, onChangeActiveMessageToUserIndex, activeMessageToUserIndex } = props;
@@ -24,8 +25,8 @@ const QuickUserHeadView = (props: any) => {
 }
 
 
-const QuickTransferComponent = (props: any) => {
-  const { tranferToList } = props;
+const QuickTransferComponent = () => {
+  const tranferToList = useSelector((state: any) => state.moneyTransfer.tranferToList);
   const [activeMessageToUserIndex, setActiveMessageToUserIndex] = useState(0)
   const [amount, setAmount] = useState('')
 

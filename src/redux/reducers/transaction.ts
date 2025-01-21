@@ -13,7 +13,6 @@ const transactionReducer = createReducer({
   },
   extraReducers: (builder => {
     builder.addCase(fetchRecentTransactions.fulfilled, (state, action) => {
-      debugger
       state.recentTransactions = action.payload;
     })
   })
