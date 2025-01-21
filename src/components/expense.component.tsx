@@ -14,14 +14,15 @@ import styles from "../styles/components/Expense.module.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title, ChartDataLabels);
 
-const ExpensePieChart = () => {
+const ExpensePieChart = (props: any) => {
+  const { expensesData } = props;;
   const data = {
-    labels: ['Others', 'Bill Expense', 'Investment', 'Entertainment'],
+    labels: Object.keys(expensesData),
     datasets: [
       {
-        data: [15, 35, 20, 30],
-        backgroundColor: ['#374151', '#398eff', 'black', 'orange'],
-        hoverBackgroundColor: ['#374151', '#398eff', 'black', 'orange'],
+        data: Object.values(expensesData),
+        backgroundColor: ['#374151', '#396AFF', 'black', 'orange'],
+        hoverBackgroundColor: ['#374151', '#396AFF', 'black', 'orange'],
         borderWidth: 10,
         hoverBorderWidth: 1,
       },
@@ -49,7 +50,7 @@ const ExpensePieChart = () => {
       },
     },
     animateRotate: true,
-    animateScale: true, 
+    animateScale: true,
   };
 
   return (

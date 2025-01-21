@@ -5,7 +5,7 @@ export const fetchUserData = createAsyncThunk<any>('user/fetchUserList', () => {
   return new Promise((res, rej) => {
     setTimeout(() => {
       return res(userMockData)
-    }, 1000);
+    }, 0);
   })
 })
 

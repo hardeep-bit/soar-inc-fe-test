@@ -14,13 +14,14 @@ import styles from "../styles/components/WeeklyActivity.module.css";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const BarChart = () => {
+const BarChart = (props: any) => {
+  const { weeklyActivity } = props;
   const data = {
-    labels: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+    labels: Object.keys(weeklyActivity.withdraw),
     datasets: [
       {
         label: "Withdraw",
-        data: [300, 400, 200, 500, 300, 450, 400],
+        data: Object.values(weeklyActivity.withdraw),
         backgroundColor: "black",
         borderWidth: 0,
         borderRadius: 20,
@@ -30,8 +31,8 @@ const BarChart = () => {
       },
       {
         label: "Deposit",
-        data: [200, 300, 150, 400, 200, 350, 300],
-        backgroundColor: "#398eff",
+        data: Object.values(weeklyActivity.deposit),
+        backgroundColor: "#396AFF",
         borderWidth: 0,
         borderRadius: 20,
         barThickness: 15,

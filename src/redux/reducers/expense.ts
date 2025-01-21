@@ -1,22 +1,23 @@
+import { fetchExpensesData } from "../..//services/expense";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
-const cardReducer = createReducer({
-  name: 'card',
+const expenseReducer = createReducer({
+  name: 'expense',
   initialState: {
-    cardList: []
+    expensesData: null
   },
   reducers: {
-    setCardList: (state, action) => {
-      state.cardList = action.payload.cardList
+    setExpensesData: (state, action) => {
+      state.expensesData = action.payload.cardList
     },
   },
-  // extraReducers: (builder => {
-  //   builder.addCase(fetchUserData.fulfilled, (state, action) => {
-  //     state.user = action.payload;
-  //   })
-  // })
+  extraReducers: (builder => {
+    builder.addCase(fetchExpensesData.fulfilled, (state, action) => {
+      state.expensesData = action.payload;
+    })
+  })
 })
 
-export const { setCardList } = cardReducer.actions
+export const { setExpensesData } = expenseReducer.actions
 
-export default cardReducer.reducer
+export default expenseReducer.reducer

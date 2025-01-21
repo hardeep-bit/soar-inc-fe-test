@@ -1,22 +1,23 @@
+import { fetchWeeklyActivity } from "../../services/activity";
 import { createSlice as createReducer } from "@reduxjs/toolkit";
 
-const cardReducer = createReducer({
-  name: 'card',
+const activityReducer = createReducer({
+  name: 'activity',
   initialState: {
-    cardList: []
+    weeklyActivity: null
   },
   reducers: {
-    setCardList: (state, action) => {
-      state.cardList = action.payload.cardList
+    setWeeklyActivity: (state, action) => {
+      state.weeklyActivity = action.payload
     },
   },
-  // extraReducers: (builder => {
-  //   builder.addCase(fetchUserData.fulfilled, (state, action) => {
-  //     state.user = action.payload;
-  //   })
-  // })
+  extraReducers: (builder => {
+    builder.addCase(fetchWeeklyActivity.fulfilled, (state, action) => {
+      state.weeklyActivity = action.payload;
+    })
+  })
 })
 
-export const { setCardList } = cardReducer.actions
+export const { setWeeklyActivity } = activityReducer.actions
 
-export default cardReducer.reducer
+export default activityReducer.reducer

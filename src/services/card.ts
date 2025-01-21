@@ -5,7 +5,7 @@ export const fetchUserCardList = createAsyncThunk<any, number>('card/fetchUserCa
   return new Promise<any>((res, rej) => {
     setTimeout(() => {
       return res(userCardList.slice(0, limit))
-    }, 1000);
+    }, 0);
   })
 })
 

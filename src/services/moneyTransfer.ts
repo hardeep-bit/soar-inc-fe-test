@@ -5,7 +5,7 @@ export const fetchTransferToList = createAsyncThunk<any, number>('moneyTransfer/
   return new Promise((res, rej) => {
     setTimeout(() => {
       return res(tranferToList.slice(0, limit))
-    }, 1000);
+    }, 0);
   })
 })
 

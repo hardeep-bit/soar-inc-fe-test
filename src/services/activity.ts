@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import userMockData from "../mockData/user";
+import { weeklyActivityMockData } from "../mockData/activity";
 
-export const fetchUserData = createAsyncThunk<any>('user/fetchUserList', () => {
+export const fetchWeeklyActivity = createAsyncThunk<any>('activity/fetchWeeklyActivity', () => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      return res(userMockData)
-    }, 1000);
+      return res(weeklyActivityMockData)
+    }, 0);
   })
 })
 
