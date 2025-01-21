@@ -1,4 +1,4 @@
-import { Avatar, Fab } from "@mui/material";
+import { Avatar, Button, Fab } from "@mui/material";
 import { useState } from "react";
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 // @ts-ignore
@@ -67,10 +67,12 @@ const QuickTransferComponent = () => {
               <div className="flex justify-between items-center outline-none p-4 pr-[40px] h-[50px] bg-[#EDF1F7] rounded-[50px] text-[#718EBF]">
                 <input onChange={onChangeAmount} value={amount} className="max-w-[140px] pr-[48px] outline-none bg-[#EDF1F7] text-[#718EBF]" placeholder="Amount" />
               </div>
-              <div className={"select-none cursor-pointer h-[50px] flex justify-between items-center gap-4 p-4 text-center bg-[#232323] rounded-[50px] ml-[-60px]"}>
-                <span className="text-[16px] font-semibold text-[#ffffff]">Send</span>
-                <SendRoundedIcon sx={{ color: '#ffffff' }} />
-              </div>
+              <Button
+                className="!capitalize !text-[16px] !h-[50px] !font-semibold !text-[#ffffff] !p-4 !text-center !rounded-[50px] !ml-[-60px] !bg-[#232323]"
+              >
+                Send
+                <SendRoundedIcon className="ml-4" sx={{ color: '#ffffff' }} />
+              </Button>
             </div>
           </div>
         </div>

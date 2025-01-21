@@ -185,12 +185,6 @@ const EditProfileComponent = () => {
   }
 
   if (!loginUser) return <div>Loading User Details...</div>
-  const isFormErrorFound =
-    isErrorFound || !!(nameDetails.error || usernameDetails.error ||
-      mailDetails.error || passwordDetails.error ||
-      dobDetails.error || presentAddressDetails.error ||
-      permanentAddressDetails.error || cityDetails.error ||
-      postalCodeDetails.error || countryDetails.error)
 
 
   return (
@@ -361,7 +355,7 @@ const EditProfileComponent = () => {
         </div>
         <div className="flex flex-row-reverse">
           <Button
-            disabled={isFormErrorFound}
+            disabled={isErrorFound}
             className={`!text-white !bg-primary w-[190px] h-[50px] !rounded-[15px] ${isErrorFound ? ' cursor-not-allowed opacity-[0.6]' : ''}`}
           >
             Save
