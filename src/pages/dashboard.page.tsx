@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchUserData())
-    dispatch(fetchUserCardList(3))
+    dispatch(fetchUserCardList(4))
     dispatch(fetchRecentTransactions(4))
     dispatch(fetchExpensesData())
     dispatch(fetchWeeklyActivity())
@@ -33,6 +33,14 @@ const Dashboard = () => {
         <CardListComponent />
         <TransactionListComponent />
       </div>
+      {/* <div className="flex flex-col md:flex-row p-2 gap-8">
+        <div className="flex-1">
+          <CardListComponent />
+        </div>
+        <div className="flex-1">
+          <TransactionListComponent />
+        </div>
+      </div> */}
       <div className='flex gap-8 p-4'>
         <WeeklyActivityComponent />
         <ExpensePieChart />

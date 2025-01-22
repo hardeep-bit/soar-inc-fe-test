@@ -17,9 +17,11 @@ import styles from "../styles/pages/AppLayout.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { setAppHeight, setAppWidth, setIsNavBarOpen } from '../redux/reducers/app';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+import { screenSizes } from '../constants';
 
 
 const AppLayout = () => {
+  const { largeDesktopMin } = screenSizes
   const appNavigations = [{
     id: 'dashboard',
     navLabel: 'Dashboard',
@@ -95,13 +97,13 @@ const AppLayout = () => {
   }, [location.pathname])
 
   const handleResize = () => {
-    dispatch(setAppHeight(window.innerHeight))
-    dispatch(setAppWidth(window.innerWidth))
+    dispatch(setAppHeight(window.screen.height))
+    dispatch(setAppWidth(window.screen.width))
   };
 
   const handleNavigation = (event: React.MouseEvent<HTMLDivElement>) => {
     const { id } = event.currentTarget
-    
+
     if (isNavBarOpen) {
       dispatch(setIsNavBarOpen(false))
     }
@@ -117,12 +119,12 @@ const AppLayout = () => {
     dispatch(setIsNavBarOpen(!isNavBarOpen))
   }
 
-  const isWidthLessThanEq1400 = width <= 1400
+  const isWidthLessThanLargeDesktopMin = width <= largeDesktopMin
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-full w-full">
       <div className='relative'>
-        <nav className={`${styles.navBarCollapsedActive} ${isWidthLessThanEq1400 ? (isNavBarOpen ? 'w-[250px] absolute bg-white h-full' : 'hidden') : 'w-[250px]'}`}>
+        <nav className={`${styles.navBarCollapsedActive} ${isWidthLessThanLargeDesktopMin ? (isNavBarOpen ? 'w-[250px] absolute bg-white h-full' : 'hidden') : 'w-[250px]'}`}>
           <div className='flex py-4 justify-center items-center h-[100px]'>
             <h1 className='text-[25px] font-extrabold text-gray-700 '>
               <AssignmentTurnedInIcon sx={{ fontSize: 30 }} className='mt-[-4px] text-primary' />
@@ -144,15 +146,14 @@ const AppLayout = () => {
             ))}
           </div>
         </nav>
-        {isWidthLessThanEq1400 && isNavBarOpen &&
-          <CancelRoundedIcon className='z-[1] cursor-pointer text-primary absolute left-[238px] top-[3px] !bg-white' onClick={navBarHandler}/>
+        {isWidthLessThanLargeDesktopMin && isNavBarOpen &&
+          <CancelRoundedIcon className='z-[1] cursor-pointer text-primary absolute left-[238px] top-[3px] !bg-white' onClick={navBarHandler} />
         }
-
       </div>
 
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main id={styles.appLayout} className="flex-1 p-4 overflow-y-auto">
+        <main id={styles.appLayout} className={`p-4 overflow-y-auto ${isWidthLessThanLargeDesktopMin ? 'flex justify-center items-center' : ''}`}>
           <Outlet />
         </main>
       </div>

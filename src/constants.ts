@@ -70,3 +70,10 @@ export const userValidations: any = {
     max: 100
   },
 }
+
+export const screenSizes: any = {
+  largeDesktopMin: 1400,
+  smallDesktopMin: 1200,
+  tabletMin: 768,
+  mobileMin: 350,
+}

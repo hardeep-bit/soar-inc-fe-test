@@ -1,19 +1,16 @@
 #cardListSection {
   display: inline-flex;
   overflow-x: scroll;
-  overflow-y: none;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer 10+ */
 }
+
 #cardListSection::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .blackGradientCard {
-  width: 350px;
-  height: 210px;
   background: linear-gradient(to bottom right, #000917, #918f99);
-  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
@@ -23,10 +20,7 @@
 }
 
 .plainCard {
-  width: 350px;
-  height: 210px;
   background: linear-gradient(to bottom right, white, #d7d7d7);
-  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
@@ -36,13 +30,16 @@
 }
 
 .cardWrapper {
-  display: inline-flex;
+  /* display: inline-flex; */
   margin-right: 20px;
-  width: 350px;
+  /* width: 350px; */
 }
 
 .card {
   display: block;
+  min-width: 350px;
+  min-height: 210px;
+  border-radius: 15px;
 }
 
 .cardHeader {
@@ -66,7 +63,7 @@
   width: 100%;
   text-align: left;
   font-size: 14px;
-  border-bottom: 1px solid lightgray; 
+  border-bottom: 1px solid lightgray;
 
   span {
     font-size: 16px;

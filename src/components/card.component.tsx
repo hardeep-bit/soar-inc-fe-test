@@ -10,7 +10,8 @@ const CardComponent = (props: any) => {
   const cardFooterClass = isGradient ? styles.gradientCardFooter : styles.plainCardFooter
 
   return (
-    <div className={styles.cardWrapper}>
+    <div>
+      <div className={styles.cardWrapper}>
       <div className={gradientClass + ' ' + styles.card}>
         <div className={styles.cardHeader}>
           <div>
@@ -36,6 +37,7 @@ const CardComponent = (props: any) => {
           <ContactlessOutlinedIcon />
         </div>
       </div>
+    </div>
     </div>
   );
 }

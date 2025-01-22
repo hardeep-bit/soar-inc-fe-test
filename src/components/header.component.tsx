@@ -9,8 +9,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from "react-redux";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { setIsNavBarOpen } from "../redux/reducers/app";
+import { screenSizes } from "../constants";
 
 const HeaderComponent = (props: any) => {
+  const { largeDesktopMin } = screenSizes
   const loginUser = useSelector((state: any) => state.user.loginUser);
   const width = useSelector((state: any) => state.app.width);
   const isNavBarOpen = useSelector((state: any) => state.app.isNavBarOpen);
@@ -38,7 +40,7 @@ const HeaderComponent = (props: any) => {
   return (
     <header id={styles.header} className="p-6 border-b-[1px] border-gray-100">
       <h1 className='text-2xl font-semibold text-gray-700 flex justify-center items-center'>
-        {width <= 1400 && <MenuRoundedIcon className="cursor-pointer mr-[10px]" onClick={navBarHandler} />}
+        {width <= largeDesktopMin && <MenuRoundedIcon className="cursor-pointer mr-[10px]" onClick={navBarHandler} />}
         {activeAppNavigation.appHeadLabel}
       </h1>
       <div className="flex justify-center items-center">

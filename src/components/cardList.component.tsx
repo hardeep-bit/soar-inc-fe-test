@@ -27,13 +27,10 @@ const CardListComponent = () => {
           See All
         </Button>
       </div>
-      <div id={styles.cardListSection} style={{
-        maxWidth: '730px',
-        minWidth: '380px'
-      }}>
+      <div id={styles.cardListSection} className="w-full md:min-w-[380px] md:max-w-[730px]">
         {cardList.map((cardDetails: any) => <CardComponent key={cardDetails.id} cardDetails={cardDetails} />)}
       </div>
-    </div>
+    </div >
   );
 }
 

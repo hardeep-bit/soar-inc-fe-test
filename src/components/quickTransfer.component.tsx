@@ -13,7 +13,7 @@ const QuickUserHeadView = (props: any) => {
   const { user, index, onChangeActiveMessageToUserIndex, activeMessageToUserIndex } = props;
 
   return (
-    <div className={`cursor-pointer ${activeMessageToUserIndex === index ? 'font-bold' : ''}`} onClick={() => onChangeActiveMessageToUserIndex(index)}>
+    <div className={`cursor-pointer text-center just ${activeMessageToUserIndex === index ? 'font-bold' : ''}`} onClick={() => onChangeActiveMessageToUserIndex(index)}>
       <Avatar
         className={styles.avatarIcon}
         alt={user.name}
