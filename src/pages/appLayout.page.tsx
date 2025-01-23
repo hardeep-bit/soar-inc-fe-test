@@ -122,7 +122,7 @@ const AppLayout = () => {
   const isWidthLessThanXL = width <= xl
 
   return (
-    <div className="flex h-full w-full">
+    <div className="xl:flex h-full w-full">
       <div className='relative'>
         <nav className={`${styles.navBarCollapsedActive} ${isWidthLessThanXL ? (isNavBarOpen ? 'w-[250px] absolute bg-white h-full' : 'hidden') : 'w-[250px]'}`}>
           <div className='flex py-4 justify-center items-center h-[100px]'>
