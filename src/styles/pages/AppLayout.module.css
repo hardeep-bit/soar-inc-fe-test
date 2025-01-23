@@ -1,6 +1,6 @@
 
 .navBarCollapsedActive {
-  @apply border-r-[1px] border-gray-100 transition-all duration-300 ease-in-out;
+  @apply h-[250vw] border-r-[1px] border-gray-100 transition-all duration-300 ease-in-out;
   transition: width 1s ease-in-out;
   z-index: 1;
 }
