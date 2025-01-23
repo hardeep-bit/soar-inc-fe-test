@@ -66,7 +66,7 @@ const Settings = () => {
   )
 
   return (
-    <div className='my-2 mx-4 p-[30px] bg-white rounded-[25px]'>
+    <div className='my-2 xl:mx-4 pt-[10px] xl:p-[30px] bg-white rounded-[25px]'>
       {renderTabsView}
     </div>
   )

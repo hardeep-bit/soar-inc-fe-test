@@ -3,8 +3,10 @@ import { useSelector } from "react-redux";
 import EditIcon from '@mui/icons-material/Edit';
 import { useEffect, useState } from "react";
 import { validateField } from "../helpers/utility";
+import { screenBreakPoints } from "../constants";
 
 const EditProfileComponent = () => {
+  const width = useSelector((state: any) => state.app.width);
   const loginUser = useSelector((state: any) => state.user.loginUser);
   const [isErrorFound, setIsErrorFound] = useState(false);
   const [nameDetails, setNameDetails] = useState({
@@ -188,25 +190,30 @@ const EditProfileComponent = () => {
 
 
   return (
-    <div className="inline-flex w-full">
-      <div className="w-1/8 ">
+    <div className="inline-flex flex-col xl:flex-row w-full">
+      <div className="mb-4 xl:mb-0 flex items-center justify-center xl:flex-none xl:items-start xl:justify-start  xl:w-1/8 ">
         <div className="relative">
           <Avatar
-            className="!w-[91px] !h-[91px] border-2 border-[#f5f7fa]"
+            className="border-2 border-[#f5f7fa]"
             alt={loginUser.name} src={loginUser.displayPicture320pxURL}
+            sx={{
+              width: width > screenBreakPoints.xl ? '91px' : '100px',
+              height: width > screenBreakPoints.xl ? '91px' : '100px',
+            }}
           />
           <Avatar sx={{ width: 30, height: 30 }} className="cursor-pointer left-[65px] bottom-0 !absolute text-white !bg-primary">
             <EditIcon className="p-1" />
           </Avatar>
         </div>
       </div>
-      <div className="w-full pl-8 pr-8">
-        <div className="flex gap-8 mb-4">
-          <div className="w-[48%]">
+      <div className="w-full xl:pl-8 xl:pr-8">
+        <div className="flex flex-col xl:flex-row xl:gap-8 xl:mb-4">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Your Name<span className="text-red-500">*</span></h5>
             <input
               id="name"
               aria-label="Name"
+              placeholder="Enter Name"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -216,11 +223,12 @@ const EditProfileComponent = () => {
               {nameDetails.error || ''}
             </p>
           </div>
-          <div className="w-[48%]">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">User Name<span className="text-red-500">*</span></h5>
             <input
               id="username"
               aria-label="Username"
+              placeholder="Enter Username"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -231,12 +239,13 @@ const EditProfileComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex gap-8 mb-4">
-          <div className="w-[48%]">
+        <div className="flex flex-col xl:flex-row xl:gap-8 xl:mb-4">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Email<span className="text-red-500">*</span></h5>
             <input
               id="mail"
               aria-label="Mail"
+              placeholder="Enter Mail Id"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -246,11 +255,12 @@ const EditProfileComponent = () => {
               {mailDetails.error || ''}
             </p>
           </div>
-          <div className="w-[48%]">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Password<span className="text-red-500">*</span></h5>
             <input
               id="password"
               aria-label="Password"
+              placeholder="Enter Password"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="password"
               onChange={onChangeHandler}
@@ -263,8 +273,8 @@ const EditProfileComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex gap-8 mb-4">
-          <div className="w-[48%]">
+        <div className="flex flex-col xl:flex-row xl:gap-8 xl:mb-4">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Date of Birth<span className="text-red-500">*</span></h5>
             <input
               id="dob"
@@ -278,11 +288,12 @@ const EditProfileComponent = () => {
               {dobDetails.error || ''}
             </p>
           </div>
-          <div className="w-[48%]">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Present Address<span className="text-red-500">*</span></h5>
             <input
               id="presentAddress"
               aria-label="Present Address"
+              placeholder="Enter Present Address"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -293,12 +304,13 @@ const EditProfileComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex gap-8 mb-4">
-          <div className="w-[48%]">
+        <div className="flex flex-col xl:flex-row xl:gap-8 xl:mb-4">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Permanent Address<span className="text-red-500">*</span></h5>
             <input
               id="permanentAddress"
               aria-label="Permanent Address"
+              placeholder="Enter Permanent Address"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -308,11 +320,12 @@ const EditProfileComponent = () => {
               {permanentAddressDetails.error || ''}
             </p>
           </div>
-          <div className="w-[48%]">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">City<span className="text-red-500">*</span></h5>
             <input
               id="city"
               aria-label="City"
+              placeholder="Enter City"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -323,12 +336,13 @@ const EditProfileComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex gap-8 mb-8">
-          <div className="w-[48%]">
+        <div className="flex flex-col xl:flex-row xl:gap-8 mb-4">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Postal Code<span className="text-red-500">*</span></h5>
             <input
               id="postalCode"
               aria-label="Postal Code"
+              placeholder="Enter Postal Code"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -338,11 +352,12 @@ const EditProfileComponent = () => {
               {postalCodeDetails.error || ''}
             </p>
           </div>
-          <div className="w-[48%]">
+          <div className="w-[100%] xl:w-[48%]">
             <h5 className="mb-2">Country<span className="text-red-500">*</span></h5>
             <input
               id="country"
               aria-label="Country"
+              placeholder="Enter Country"
               className="text-[15px] outline-none text-[#718EBF] border border-[#DFEAF2] rounded-[15px] w-full p-4"
               type="text"
               onChange={onChangeHandler}
@@ -353,10 +368,10 @@ const EditProfileComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row-reverse">
+        <div className="flex justify-center items-center xl:items-start xl:justify-start xl:flex-row-reverse">
           <Button
             disabled={isErrorFound}
-            className={`!text-white !bg-primary w-[190px] h-[50px] !rounded-[15px] ${isErrorFound ? ' cursor-not-allowed opacity-[0.6]' : ''}`}
+            className={`!capitalize w-[285px] h-[40px] rounded-[9px] text-[15px] font-medium !text-white !bg-primary xl:text-[18px] xl:w-[190px] xl:h-[50px] xl:rounded-[15px] ${isErrorFound ? ' cursor-not-allowed opacity-[0.6]' : ''}`}
           >
             Save
           </Button>

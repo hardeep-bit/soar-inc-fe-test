@@ -165,7 +165,7 @@ const AppLayout = () => {
         </div>
       </nav>
       {isWidthLessThanXL && isNavBarOpen &&
-        <CancelRoundedIcon className='z-[1] cursor-pointer text-primary absolute left-[238px] top-[3px] !bg-white' onClick={navBarHandler} />
+        <CancelRoundedIcon className='!w-8 !h-8 z-[1] cursor-pointer text-primary absolute left-[235px] top-[3px] !bg-white' onClick={navBarHandler} />
       }
     </div>
   )

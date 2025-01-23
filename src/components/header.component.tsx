@@ -12,11 +12,9 @@ import { setIsNavBarOpen } from "../redux/reducers/app";
 import { screenBreakPoints } from "../constants";
 
 const HeaderComponent = (props: any) => {
-  const { xl } = screenBreakPoints
   const loginUser = useSelector((state: any) => state.user.loginUser);
   const width = useSelector((state: any) => state.app.width);
   const isNavBarOpen = useSelector((state: any) => state.app.isNavBarOpen);
-
   const { activeAppNavigation } = props;
   const [searchedText, setSearchedText] = useState('');
   const navigate = useNavigate();
