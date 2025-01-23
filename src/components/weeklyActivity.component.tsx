@@ -46,6 +46,7 @@ const WeeklyActivityComponent = () => {
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -91,9 +92,9 @@ const WeeklyActivityComponent = () => {
   };
 
   return (
-    <div className=" text-gray-700 ">
-      <div className="text-[18px] font-semibold mb-4">
-        <h4>Weekly Activity</h4>
+    <div className="text-gray-700">
+      <div className="text-[18px] font-semibold mb-2">
+        <h4 className="md:py-4 pt-4">Weekly Activity</h4>
       </div>
       <div id={styles.weeklyActivitySection}>
         <Bar data={data} options={options as object} />

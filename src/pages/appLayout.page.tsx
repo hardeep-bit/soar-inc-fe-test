@@ -153,7 +153,7 @@ const AppLayout = () => {
 
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main id={styles.appLayout} className={`py-0 px-8 overflow-y-auto ${isWidthLessThanLargeDesktopMin ? 'flex justify-center items-center' : ''}`}>
+        <main id={styles.appLayout} className={`py-0 px-4 md:px-8 overflow-y-auto ${isWidthLessThanLargeDesktopMin ? 'flex justify-center items-center' : ''}`}>
           <Outlet />
         </main>
       </div>

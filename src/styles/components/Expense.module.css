@@ -1,8 +1,4 @@
-#weeklyActivitySection {
-  @apply p-6;
-  width: 400px;
-  height: 380px;
-  background-color: white;
+#pieSection {
+  @apply md:bg-white ml-2 md:p-6 w-[325px] h-[240px] md:w-[325px] md:h-[322px] flex justify-center;
   border-radius: 15px;
-  margin-left: -5px;
 }

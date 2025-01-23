@@ -12,11 +12,14 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 // @ts-ignore
 import styles from "../styles/components/Expense.module.css";
 import { useSelector } from 'react-redux';
+import { screenSizes } from '../constants';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title, ChartDataLabels);
 
 const ExpensePieChart = () => {
   const expensesData = useSelector((state: any) => state.expense.expensesData);
+  const width = useSelector((state: any) => state.app.width);
+
   if (!expensesData) return <div>Loading Expenses...</div>
 
   const data = {
@@ -33,6 +36,7 @@ const ExpensePieChart = () => {
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -45,7 +49,7 @@ const ExpensePieChart = () => {
         color: '#fff',
         font: {
           weight: 'bold',
-          size: 12,
+          size: width > screenSizes.tabletMin ? 12 : 10,
         },
         formatter: (value: any, context: any) => {
           return `${value}%\n${context.chart.data.labels[context.dataIndex]}`;
@@ -58,11 +62,11 @@ const ExpensePieChart = () => {
 
   return (
     <div className="text-gray-700">
-      <div className="text-[18px] font-semibold mb-4">
-        <h4>Expense Statistics</h4>
+      <div className="text-[18px] font-semibold mb-2">
+        <h4 className='md:py-4 pt-4 md:pl-2'>Expense Statistics</h4>
       </div>
-      <div id={styles.weeklyActivitySection}>
-        <Pie data={data} options={options as object} />
+      <div id={styles.pieSection}>
+        <Pie data={data} options={options as object} width={350} />
       </div>
     </div>
   );
