@@ -59,6 +59,7 @@ const EditProfileComponent = () => {
       name: name || '',
       mail: mail || '',
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

@@ -1,7 +1,5 @@
 //@ts-ignore
 import styles from "../styles/components/Card.module.css";
-import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
-import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 
 //@ts-ignore
 import cardChip from "../assets/images/cardChip.png";
