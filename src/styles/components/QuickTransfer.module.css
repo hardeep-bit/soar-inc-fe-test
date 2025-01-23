@@ -1,5 +1,5 @@
 #quickTransferSection {
-  @apply ml-2 md:p-6 w-[325px] h-[195px] md:w-[445px] md:h-[276px] md:bg-white;
+  @apply ml-2 md:p-6 w-[325px] md:rounded-[15px] h-[195px] md:w-[445px] md:h-[276px] md:bg-white;
 }
 
 .avatarIcon {

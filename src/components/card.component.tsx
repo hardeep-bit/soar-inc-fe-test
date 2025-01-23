@@ -15,32 +15,30 @@ const CardComponent = (props: any) => {
   const cardFooterClass = isGradient ? styles.gradientCardFooter : styles.plainCardFooter
 
   return (
-    <div>
-      <div className={styles.cardWrapper}>
-        <div className={gradientClass + ' ' + styles.card}>
-          <div className={styles.cardHeader}>
-            <div>
-              <h5>Balance</h5>
-              <span>{currency}{balance}</span>
-            </div>
-            <div className="flex items-center justify-center"  >
-              <img src={cardChip} alt="cardChip" width={35} height={35}></img>
-            </div>
+    <div className={styles.cardWrapper}>
+      <div className={gradientClass + ' ' + styles.card}>
+        <div className={styles.cardHeader}>
+          <div>
+            <h5>Balance</h5>
+            <span>{currency}{balance}</span>
           </div>
-          <div className={styles.cardBody}>
-            <div>
-              <h5>CARD HOLDER</h5>
-              <span>{cardHolderName}</span>
-            </div>
-            <div className="ml-[40px]">
-              <h5>VALID THRU</h5>
-              <span>{validTill}</span>
-            </div>
+          <div className="flex items-center justify-center"  >
+            <img src={cardChip} alt="cardChip" width={35} height={35}></img>
           </div>
-          <div className={cardFooterClass}>
-            {cardNumber}
-            <img src={cardGroup} alt="cardGroup" className="h-[19px] md:h-[30px]" ></img>
+        </div>
+        <div className={styles.cardBody}>
+          <div>
+            <h5>CARD HOLDER</h5>
+            <span>{cardHolderName}</span>
           </div>
+          <div className="ml-[40px]">
+            <h5>VALID THRU</h5>
+            <span>{validTill}</span>
+          </div>
+        </div>
+        <div className={cardFooterClass}>
+          {cardNumber}
+          <img src={cardGroup} alt="cardGroup" className="h-[19px] md:h-[30px]" ></img>
         </div>
       </div>
     </div>
