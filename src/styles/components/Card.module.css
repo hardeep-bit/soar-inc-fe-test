@@ -1,93 +1,45 @@
-#cardListSection {
-  display: inline-flex;
-  overflow-x: auto;
-  padding-bottom: 5px;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer 10+ */
-}
-
-#cardListSection::-webkit-scrollbar {
-  display: none;
-}
-
 .blackGradientCard {
   background: linear-gradient(to bottom right, #000917, #918f99);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  font-family: Arial, sans-serif;
 }
 
 .plainCard {
   background: linear-gradient(to bottom right, white, #d7d7d7);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: black;
-  font-family: Arial, sans-serif;
 }
 
 .cardWrapper {
-  /* display: inline-flex; */
-  margin-right: 20px;
-  /* width: 350px; */
+  @apply flex-shrink-0 md:mr-[10px];
 }
 
 .card {
-  display: block;
-  min-width: 350px;
-  min-height: 210px;
+  @apply block w-[265px] md:w-[350px] md:h-[235px];
   border-radius: 15px;
 }
 
 .cardHeader {
-  padding: 20px 20px 0px 20px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  text-align: left;
-  font-size: 14px;
+  @apply px-[20px] pt-[20px] pb-0 flex w-full justify-between text-left text-[11px] md:text-[12px];
 
   span {
-    font-size: 18px;
-    font-weight: bold;
+    @apply text-[16px] md:text-[20px] font-bold;
   }
 }
 
 .cardBody {
-  padding: 0px 20px 10px 20px;
-  margin-top: 20px;
-  display: flex;
-  width: 100%;
-  text-align: left;
-  font-size: 14px;
-  border-bottom: 1px solid lightgray;
+  @apply px-[20px] pt-0 pb-[10px] mt-[20px] md:mt-[44px] flex w-full text-left text-[10px] md:text-[12px] font-normal  border-b border-gray-300;
 
   span {
-    font-size: 16px;
-    font-weight: bold;
+    @apply text-[13px] md:text-[15px] font-semibold;
   }
 }
 
 .gradientCardFooter {
-  padding: 20px 20px 20px 20px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  text-align: left;
-  font-size: 18px;
+  @apply h-[51px] md:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] md:text-[22px] rounded-b-[14px];
   background: linear-gradient(to bottom right, #000000, #979797);
-  border-radius: 0px 0px 14px 14px;
 }
 
 .plainCardFooter {
-  padding: 20px 20px 20px 20px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  text-align: left;
-  font-size: 18px;
+  @apply h-[51px] md:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] md:text-[22px] rounded-b-[14px];
 }

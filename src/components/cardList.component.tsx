@@ -1,11 +1,15 @@
 //@ts-ignore
-import styles from "../styles/components/Card.module.css";
+// import styles from "../styles/components/Card.module.css";
 import { useSelector } from "react-redux";
 import CardComponent from "./card.component";
 import { Button } from "@mui/material";
+import { clsx } from 'clsx';
+import { screenSizes } from "../constants";
 
 const CardListComponent = () => {
   const cardList = useSelector((state: any) => state.card.cardList);
+  const width = useSelector((state: any) => state.app.width);
+  const cardcontainerClassName = clsx('flex flex-nowrap overflow-x-auto gap-4 md:max-w-[720px] h-[190px] md:h-[235px]');
 
   if (cardList.length === 0) {
     return (
@@ -14,23 +18,29 @@ const CardListComponent = () => {
       </div>
     );
   }
-
   return (
-    <div>
-      <div className=" text-gray-700 mb-4 flex justify-between items-center">
-        <div className="text-[18px] font-semibold">
-          <h4>My Cards</h4>
+    <div className="flex flex-col  w-full md:w-auto">
+      <div className="flex flex-col ">
+        <div className=" p-4 px-0 text-gray-700 flex justify-between items-center">
+          <div className="text-[18px] font-semibold">
+            <h4>My Cards</h4>
+          </div>
+          <Button
+            className="!capitalize !text-[#343C6A] !text-[14px] cursor-pointer !font-semibold "
+          >
+            See All
+          </Button>
         </div>
-        <Button
-          className="!capitalize !text-[#343C6A] !text-[14px] cursor-pointer !font-semibold "
-        >
-          See All
-        </Button>
+
+        <div className="flex overflow-x-auto gap-4">
+          <div className={cardcontainerClassName}
+            style={width < screenSizes.tabletMin ? { maxWidth: `calc(${width}px - 1%)` } : {}}
+          >
+            {cardList.map((cardDetails: any) => <CardComponent key={cardDetails.id} cardDetails={cardDetails} />)}
+          </div>
+        </div>
       </div>
-      <div id={styles.cardListSection} className="w-full md:min-w-[380px] md:max-w-[730px]">
-        {cardList.map((cardDetails: any) => <CardComponent key={cardDetails.id} cardDetails={cardDetails} />)}
-      </div>
-    </div >
+    </div>
   );
 }
 
