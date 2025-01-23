@@ -1,8 +1,3 @@
 #transactionListSection {
-  @apply p-4;
-  width: 400px;
-  height: 210px;
-  background-color: white;
-  border-radius: 15px;
-  overflow-y: scroll;
+  @apply bg-transparent md:bg-white rounded-[15px] overflow-y-scroll md:p-4 pr-[.5rem] h-[214px] w-[325px] md:h-[235px] md:mt-6 md:w-[350px];
 }

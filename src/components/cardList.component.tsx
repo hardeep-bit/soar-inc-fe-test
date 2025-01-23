@@ -9,7 +9,7 @@ import { screenSizes } from "../constants";
 const CardListComponent = () => {
   const cardList = useSelector((state: any) => state.card.cardList);
   const width = useSelector((state: any) => state.app.width);
-  const cardcontainerClassName = clsx('flex flex-nowrap overflow-x-auto gap-4 md:max-w-[720px] h-[190px] md:h-[235px]');
+  const cardcontainerClassName = clsx('scrollbarHide flex flex-nowrap overflow-x-auto gap-4 md:max-w-[720px] h-[190px] md:h-[235px]');
 
   if (cardList.length === 0) {
     return (

@@ -45,7 +45,7 @@ const TransactionListComponent = () => {
       <div className="text-gray-700 mb-4 text-[18px] font-semibold">
         <h4>Recent Transaction</h4>
       </div>
-      <div id={styles.transactionListSection}>
+      <div id={styles.transactionListSection} className="scrollbarHide">
         {recentTransactions?.map((transaction: any) => (
           <div key={transaction.id} className="flex items-center justify-between p-2">
             <div className="flex items-center">
