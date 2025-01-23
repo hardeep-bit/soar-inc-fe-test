@@ -106,11 +106,11 @@ const Dashboard = () => {
         <CardListComponent />
         <TransactionListComponent />
       </div>
-      <div className='flex gap-8 p-4'>
+      <div className='flex gap-8 py-4'>
         <WeeklyActivityComponent />
         <ExpensePieChart />
       </div>
-      <div className='flex gap-8 p-4'>
+      <div className='flex gap-8 py-4'>
         <QuickTransferComponent />
         <BalanceHistoryComponent />
       </div>
