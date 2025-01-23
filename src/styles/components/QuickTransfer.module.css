@@ -1,13 +1,7 @@
 #quickTransferSection {
-  width: 425px;
-  height: 276px;
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 20px 15px;
+  @apply ml-2 md:p-6 w-[325px] h-[195px] md:w-[445px] md:h-[276px] md:bg-white;
 }
 
 .avatarIcon {
-  border: 2px solid #f5f7fa;
-  margin: 0 auto;
   margin-bottom: 10px;
 }

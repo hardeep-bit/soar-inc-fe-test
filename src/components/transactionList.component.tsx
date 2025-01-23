@@ -53,7 +53,7 @@ const TransactionListComponent = () => {
                 {getLeftIcon(transaction.via)}
               </div>
               <div className="ml-3">
-                <div className="text-gray-800 font-semibold">{getTransactionHeader(transaction)}</div>
+                <div className="text-gray-800 font-semibold line-clamp-1">{getTransactionHeader(transaction)}</div>
                 <div className="text-gray-400 text-[14px]">{formatDate(transaction.date)}</div>
               </div>
             </div>

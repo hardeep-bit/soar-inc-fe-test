@@ -56,6 +56,7 @@ const BalanceHistoryComponent = () => {
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -93,8 +94,8 @@ const BalanceHistoryComponent = () => {
 
   return (
     <div className="text-gray-700">
-      <div className="text-[18px] font-semibold mb-4">
-        <h4>Balance History</h4>
+      <div className="text-[18px] font-semibold mb-2">
+        <h4 className="md:pt-8 md:pb-4 pb-6 md:pl-2 mt-[-16px] md:mt-[4px]">Balance History</h4>
       </div>
       <div id={styles.balanceHistorySection}>
         <Line id="lineGraph" data={data} options={options as object} />

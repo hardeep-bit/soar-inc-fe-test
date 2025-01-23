@@ -39,7 +39,7 @@ const Dashboard = () => {
         <WeeklyActivityComponent />
         <ExpensePieChart />
       </div>
-      <div className='flex gap-8 py-4'>
+      <div className='flex flex-col md:flex-row overflow-hidden md:gap-4'>
         <QuickTransferComponent />
         <BalanceHistoryComponent />
       </div>

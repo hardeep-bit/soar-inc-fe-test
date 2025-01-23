@@ -1,11 +1,4 @@
 #balanceHistorySection {
-  width: 683px;
-  height: 276px;
-  background: #ffffff;
+  @apply md:bg-white ml-2 md:p-6 w-[325px] h-[223px] md:w-[620px] md:h-[276px] flex justify-center;
   border-radius: 15px;
-  padding: 1rem 2rem;
-
-  canvas {
-    width: 100% !important;
-  }
 }

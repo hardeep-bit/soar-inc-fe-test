@@ -19,9 +19,11 @@ const CardListComponent = () => {
     );
   }
   return (
-    <div className="flex flex-col  w-full md:w-auto">
-      <div className="flex flex-col ">
-        <div className=" p-4 px-0 text-gray-700 flex justify-between items-center">
+    <div className="flex flex-col w-full md:w-auto">
+      <div className="flex flex-col">
+        <div className="py-4 md:p-4 md:px-0 pr-[10px] text-gray-700 flex justify-between items-center"
+          style={width < screenSizes.tabletMin ? { maxWidth: `calc(${width}px - 1%)` } : {}}
+        >
           <div className="text-[18px] font-semibold">
             <h4>My Cards</h4>
           </div>
