@@ -6,6 +6,14 @@ const user = {
   displayPictureData: '', // base64 data
   token: '',
   refreshToken: '',
+  username: '',
+  password: '',
+  dob: '',
+  presentAddress: '',
+  permanentAddress: '',
+  city: '',
+  postalCode: '',
+  country: ''
 }
 
 export default user;

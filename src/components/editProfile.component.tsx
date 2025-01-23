@@ -1,14 +1,18 @@
 import { Avatar, Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import EditIcon from '@mui/icons-material/Edit';
 import { useEffect, useState } from "react";
 import { validateField } from "../helpers/utility";
 import { screenBreakPoints } from "../constants";
+import { setUser } from "../redux/reducers/user";
+import { AppDispatch } from "../redux";
 
 const EditProfileComponent = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const width = useSelector((state: any) => state.app.width);
   const loginUser = useSelector((state: any) => state.user.loginUser);
   const [isErrorFound, setIsErrorFound] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState('');
   const [nameDetails, setNameDetails] = useState({
     value: loginUser && loginUser.name ? loginUser.name : '',
     error: ''
@@ -103,6 +107,8 @@ const EditProfileComponent = () => {
       isErrorFound = true
     }
 
+    console.log('isErrorFound, isErrorFound,', isErrorFound);
+
     setIsErrorFound(isErrorFound)
   }
 
@@ -117,16 +123,63 @@ const EditProfileComponent = () => {
         value: loginUser.mail,
         error: validateField('mail', loginUser.mail, 'Mail')
       })
+
+      if (loginUser.username)
+        setUsernameDetails({
+          value: loginUser.username,
+          error: validateField('username', loginUser.username, 'Username')
+        })
+
+      if (loginUser.password)
+        setPasswordDetails({
+          value: loginUser.password,
+          error: validateField('password', loginUser.password, 'Password')
+        })
+
+      if (loginUser.dob)
+        setDobDetails({
+          value: loginUser.dob,
+          error: validateField('dob', loginUser.dob, 'DOB')
+        })
+
+      if (loginUser.presentAddress)
+        setPresentAddressDetails({
+          value: loginUser.presentAddress,
+          error: validateField('presentAddress', loginUser.presentAddress, 'Present Address')
+        })
+
+      if (loginUser.permanentAddress)
+        setPermanentAddressDetails({
+          value: loginUser.permanentAddress,
+          error: validateField('permanentAddress', loginUser.permanentAddress, 'Permanent Address')
+        })
+
+      if (loginUser.city)
+        setCityDetails({
+          value: loginUser.city,
+          error: validateField('city', loginUser.city, 'City')
+        })
+
+      if (loginUser.postalCode)
+        setPostalCodeDetails({
+          value: loginUser.postalCode,
+          error: validateField('postalCode', loginUser.postalCode, 'Postal Code')
+        })
+
+      if (loginUser.country)
+        setCountryDetails({
+          value: loginUser.country,
+          error: validateField('country', loginUser.country, 'Country')
+        })
     }
   }
-
 
   const onChangeHandler = (event: any) => {
     const { value, id } = event.target;
     const label = event.target?.getAttribute("aria-label");
-
     const anyError = validateField(id, value, label)
 
+    debugger
     if (id === 'name') {
       setNameDetails({
         value,
@@ -137,20 +190,16 @@ const EditProfileComponent = () => {
         value,
         error: anyError
       })
-
     } else if (id === 'mail') {
       setmailDetails({
         value,
         error: anyError
       })
-      setFormValidity({ username: value })
-
     } else if (id === 'password') {
       setPasswordDetails({
         value,
         error: anyError
       })
-
     } else if (id === 'dob') {
       setDobDetails({
         value,
@@ -187,6 +236,39 @@ const EditProfileComponent = () => {
     setFormValidity({ [id]: value })
   }
 
+  const onSaveHandler = () => {
+    dispatch(setUser({
+      name: nameDetails.value,
+      mail: mailDetails.value,
+      displayPicture320pxURL: previewUrl,
+      username: usernameDetails.value,
+      password: passwordDetails.value,
+      dob: dobDetails.value,
+      presentAddress: presentAddressDetails.value,
+      permanentAddress: permanentAddressDetails.value,
+      city: cityDetails.value,
+      postalCode: postalCodeDetails.value,
+      country: countryDetails.value
+    }))
+
+    alert('User updated in browser!')
+  }
+
+  const handleImageChange = (e: any) => {
+    const file = e.target.files[0];
+    if (file) {
+
+      const preview = URL.createObjectURL(file);
+      debugger
+      setPreviewUrl(preview as any);
+    }
+  };
+
+  const handleImageSelector = () => {
+    const element = document.getElementById('hiddenFileInput') as any;
+    element.click();
+  };
+
   if (!loginUser) return <div>Loading User Details...</div>
 
 
@@ -196,14 +278,25 @@ const EditProfileComponent = () => {
         <div className="relative">
           <Avatar
             className="border-2 border-[#f5f7fa]"
-            alt={loginUser.name} src={loginUser.displayPicture320pxURL}
+            alt={loginUser.name} src={previewUrl || loginUser.displayPicture320pxURL}
             sx={{
               width: width > screenBreakPoints.xl ? '91px' : '100px',
               height: width > screenBreakPoints.xl ? '91px' : '100px',
             }}
           />
-          <Avatar sx={{ width: 30, height: 30 }} className="cursor-pointer left-[65px] bottom-0 !absolute text-white !bg-primary">
+          <Avatar
+            onClick={handleImageSelector}
+            sx={{ width: 30, height: 30 }}
+            className="cursor-pointer left-[65px] bottom-0 !absolute text-white !bg-primary"
+          >
             <EditIcon className="p-1" />
+            <input
+              id="hiddenFileInput"
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ display: 'none' }}
+            />
           </Avatar>
         </div>
       </div>
@@ -371,6 +464,7 @@ const EditProfileComponent = () => {
         </div>
         <div className="flex justify-center items-center xl:items-start xl:justify-start xl:flex-row-reverse">
           <Button
+            onClick={onSaveHandler}
             disabled={isErrorFound}
             className={`!capitalize w-[285px] h-[40px] rounded-[9px] text-[15px] font-medium !text-white !bg-primary xl:text-[18px] xl:w-[190px] xl:h-[50px] xl:rounded-[15px] ${isErrorFound ? ' cursor-not-allowed opacity-[0.6]' : ''}`}
           >

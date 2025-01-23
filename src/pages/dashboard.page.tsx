@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import CardListComponent from '../components/cardList.component';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserCardList } from '../services/card';
 import { AppDispatch } from '../redux';
 import TransactionListComponent from '../components/transactionList.component';
@@ -16,9 +16,12 @@ import WeeklyActivityComponent from '../components/weeklyActivity.component';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const loginUser = useSelector((state: any) => state.user.loginUser);
 
   useEffect(() => {
-    dispatch(fetchUserData())
+    if (!loginUser) {
+      dispatch(fetchUserData())
+    }
     dispatch(fetchUserCardList(4))
     dispatch(fetchRecentTransactions(4))
     dispatch(fetchExpensesData())

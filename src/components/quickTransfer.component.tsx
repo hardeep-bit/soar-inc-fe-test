@@ -15,16 +15,18 @@ const QuickUserHeadView = (props: any) => {
   const width = useSelector((state: any) => state.app.width);
 
   return (
-    <div className={`cursor-pointer text-center just ${activeMessageToUserIndex === index ? 'font-bold' : ''}`} onClick={() => onChangeActiveMessageToUserIndex(index)}>
-      <Avatar
-        className={styles.avatarIcon}
-        alt={user.name}
-        src={user.displayPicture320pxURL}
-        sx={{
-          width: width > screenBreakPoints.xl ? '70px' : '50px',
-          height: width > screenBreakPoints.xl ? '70px' : '50px',
-        }}
-      />
+    <div className={`cursor-pointer text-center justify-center ${activeMessageToUserIndex === index ? 'font-bold' : ''}`} onClick={() => onChangeActiveMessageToUserIndex(index)}>
+      <div className="text-center justify-center flex">
+        <Avatar
+          className={styles.avatarIcon}
+          alt={user.name}
+          src={user.displayPicture320pxURL}
+          sx={{
+            width: width > screenBreakPoints.xl ? '70px' : '50px',
+            height: width > screenBreakPoints.xl ? '70px' : '50px',
+          }}
+        />
+      </div>
       <h5 className="text-[12px] xl:text-[16px] text-[#232323] text-center line-clamp-1">
         {truncateString(user.name)}
       </h5>
@@ -101,8 +103,8 @@ const QuickTransferComponent = () => {
           <div className="flex gap-4 xl:gap-8 justify-between items-center">
             <h5 className="text-[12px] xl:text-[16px] text-[#718EBF]">Write Amount</h5>
             <div className="flex justify-between items-center w-[187px] xl:w-[265px] h-[40px] xl:h-[50px]">
-              <div className="flex justify-between items-center outline-none p-4 pr-[50px] h-[40px] xl:h-[50px] bg-[#EDF1F7] rounded-[50px] text-[#718EBF]">
-                <input onChange={onChangeAmount} value={amount} className="text-[12px] xl:text-[16px] max-w-[140px] xl:pr-[48px] outline-none bg-[#EDF1F7] text-[#718EBF]" placeholder="Amount" />
+              <div className="flex justify-between items-center outline-none p-4 pr-[50px] w-[187px] xl:w-[265px] h-[40px] xl:h-[50px] bg-[#EDF1F7] rounded-[50px] text-[#718EBF]">
+                <input onChange={onChangeAmount} value={amount} className="pr-[75px] text-[12px] xl:text-[16px] max-w-[140px] xl:pr-[48px] outline-none bg-[#EDF1F7] text-[#718EBF]" placeholder="Amount" />
               </div>
               <Button
                 onClick={sendMoneyHandler}

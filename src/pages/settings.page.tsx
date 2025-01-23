@@ -6,7 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import EditProfileComponent from '../components/editProfile.component';
 import { fetchUserData } from '../services/user';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux';
 
 const Settings = () => {
@@ -21,9 +21,12 @@ const Settings = () => {
     value: 'security'
   }]
   const dispatch = useDispatch<AppDispatch>();
+  const loginUser = useSelector((state: any) => state.user.loginUser);
 
   useEffect(() => {
-    dispatch(fetchUserData())
+    if(!loginUser) {
+      dispatch(fetchUserData())
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [activeTab, setValue] = React.useState('editProfile');
