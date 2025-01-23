@@ -11,35 +11,35 @@
 }
 
 .cardWrapper {
-  @apply flex-shrink-0 md:mr-[10px];
+  @apply flex-shrink-0 xl:mr-[10px];
 }
 
 .card {
-  @apply block w-[265px] md:w-[350px] md:h-[235px];
+  @apply block w-[265px] xl:w-[350px] xl:h-[235px];
   border-radius: 15px;
 }
 
 .cardHeader {
-  @apply px-[20px] pt-[20px] pb-0 flex w-full justify-between text-left text-[11px] md:text-[12px];
+  @apply px-[20px] pt-[20px] pb-0 flex w-full justify-between text-left text-[11px] xl:text-[12px];
 
   span {
-    @apply text-[16px] md:text-[20px] font-bold;
+    @apply text-[16px] xl:text-[20px] font-bold;
   }
 }
 
 .cardBody {
-  @apply px-[20px] pt-0 pb-[10px] mt-[20px] md:mt-[44px] flex w-full text-left text-[10px] md:text-[12px] font-normal  border-b border-gray-300;
+  @apply px-[20px] pt-0 pb-[10px] mt-[20px] xl:mt-[44px] flex w-full text-left text-[10px] xl:text-[12px] font-normal  border-b border-gray-300;
 
   span {
-    @apply text-[13px] md:text-[15px] font-semibold;
+    @apply text-[13px] xl:text-[15px] font-semibold;
   }
 }
 
 .gradientCardFooter {
-  @apply h-[51px] md:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] md:text-[22px] rounded-b-[14px];
+  @apply h-[51px] xl:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] xl:text-[22px] rounded-b-[14px];
   background: linear-gradient(to bottom right, #000000, #979797);
 }
 
 .plainCardFooter {
-  @apply h-[51px] md:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] md:text-[22px] rounded-b-[14px];
+  @apply h-[51px] xl:h-[70px] p-4 flex w-full justify-between text-left font-semibold text-[15px] xl:text-[22px] rounded-b-[14px];
 }

@@ -31,15 +31,15 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row overflow-hidden md:gap-4">
+      <div className="flex flex-col xl:flex-row overflow-hidden xl:gap-4">
         <CardListComponent />
         <TransactionListComponent />
       </div>
-      <div className='flex flex-col md:flex-row overflow-hidden md:gap-4'>
+      <div className='flex flex-col xl:flex-row overflow-hidden xl:gap-4'>
         <WeeklyActivityComponent />
         <ExpensePieChart />
       </div>
-      <div className='flex flex-col md:flex-row overflow-hidden md:gap-4'>
+      <div className='flex flex-col xl:flex-row overflow-hidden xl:gap-4'>
         <QuickTransferComponent />
         <BalanceHistoryComponent />
       </div>

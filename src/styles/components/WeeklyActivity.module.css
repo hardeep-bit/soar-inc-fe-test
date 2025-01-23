@@ -1,4 +1,4 @@
 #weeklyActivitySection {
-  @apply md:p-6 w-[325px] h-[254px] md:w-[730px] md:bg-white md:h-[322px] flex justify-center;
+  @apply xl:p-6 w-[325px] h-[254px] xl:w-[730px] xl:bg-white xl:h-[322px] flex justify-center;
   border-radius: 15px;
 }

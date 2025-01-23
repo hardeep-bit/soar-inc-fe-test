@@ -41,7 +41,7 @@ const TransactionListComponent = () => {
   }
 
   return (
-    <div className="md:p-4 w-full md:w-auto mt-4 md:mt-0">
+    <div className="xl:p-4 w-full xl:w-auto mt-4 xl:mt-0">
       <div className="text-gray-700 mb-4 text-[18px] font-semibold">
         <h4>Recent Transaction</h4>
       </div>

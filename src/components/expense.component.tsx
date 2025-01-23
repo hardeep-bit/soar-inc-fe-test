@@ -12,7 +12,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 // @ts-ignore
 import styles from "../styles/components/Expense.module.css";
 import { useSelector } from 'react-redux';
-import { screenSizes } from '../constants';
+import { screenBreakPoints } from '../constants';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title, ChartDataLabels);
 
@@ -29,8 +29,8 @@ const ExpensePieChart = () => {
         data: Object.values(expensesData),
         backgroundColor: ['#374151', '#396AFF', '#232323', '#FC7900'],
         hoverBackgroundColor: ['#374151', '#396AFF', '#232323', '#FC7900'],
-        borderWidth: width > screenSizes.tabletMin ? 10: 5,
-        hoverBorderWidth: width > screenSizes.tabletMin ? 1 : 0,
+        borderWidth: width > screenBreakPoints.xl ? 10 : 5,
+        hoverBorderWidth: width > screenBreakPoints.xl ? 1 : 0,
       },
     ],
   };
@@ -49,7 +49,7 @@ const ExpensePieChart = () => {
         color: '#fff',
         font: {
           weight: 'bold',
-          size: width > screenSizes.tabletMin ? 12 : 11,
+          size: width > screenBreakPoints.xl ? 12 : 11,
         },
         formatter: (value: any, context: any) => {
           return `${value}%\n${context.chart.data.labels[context.dataIndex]}`;
@@ -62,8 +62,8 @@ const ExpensePieChart = () => {
 
   return (
     <div className="text-gray-700">
-      <div className="mb-4 md:mb-2 text-[18px] font-semibold">
-        <h4 className='md:py-4 pt-4 md:pl-2'>Expense Statistics</h4>
+      <div className="mb-4 xl:mb-2 text-[18px] font-semibold">
+        <h4 className='xl:py-4 pt-4 xl:pl-2'>Expense Statistics</h4>
       </div>
       <div id={styles.pieSection}>
         <Pie data={data} options={options as object} width={350} />

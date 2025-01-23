@@ -8,7 +8,7 @@ import { getCurrentFormattedDate, truncateString } from "../helpers/utility";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import { useDispatch, useSelector } from "react-redux";
 import { addToRecentTransactions } from "../redux/reducers/transaction";
-import { screenSizes } from "../constants";
+import { screenBreakPoints } from "../constants";
 
 const QuickUserHeadView = (props: any) => {
   const { user, index, onChangeActiveMessageToUserIndex, activeMessageToUserIndex } = props;
@@ -21,14 +21,14 @@ const QuickUserHeadView = (props: any) => {
         alt={user.name}
         src={user.displayPicture320pxURL}
         sx={{
-          width: width > screenSizes.tabletMin ? '70px' : '50px',
-          height: width > screenSizes.tabletMin ? '70px' : '50px',
+          width: width > screenBreakPoints.xl ? '70px' : '50px',
+          height: width > screenBreakPoints.xl ? '70px' : '50px',
         }}
       />
-      <h5 className="text-[12px] md:text-[16px] text-[#232323] text-center line-clamp-1">
+      <h5 className="text-[12px] xl:text-[16px] text-[#232323] text-center line-clamp-1">
         {truncateString(user.name)}
       </h5>
-      <h6 className="text-[12px] md:text-[15px] text-[#718EBF] text-center line-clamp-1">
+      <h6 className="text-[12px] xl:text-[15px] text-[#718EBF] text-center line-clamp-1">
         {truncateString(user.position)}
       </h6>
     </div>
@@ -78,7 +78,7 @@ const QuickTransferComponent = () => {
   return (
     <div className="text-gray-700">
       <div className="text-[18px] font-semibold mb-2">
-        <h4 className="md:pt-8 md:pb-4 pb-6 md:pl-2 mt-[16px] md:mt-[4px]">Quick Transfer</h4>
+        <h4 className="xl:pt-8 xl:pb-4 pb-6 xl:pl-2 mt-[16px] xl:mt-[4px]">Quick Transfer</h4>
       </div>
       <div id={styles.quickTransferSection}>
         <div className="p-0 m-0 flex gap-8 justify-around items-center">
@@ -90,23 +90,23 @@ const QuickTransferComponent = () => {
           ))}
 
           <Fab className="cursor-pointer " aria-label="add" sx={{
-            width: width > screenSizes.tabletMin ? 50 : 40,
-            height: width > screenSizes.tabletMin ? 50 : 40,
+            width: width > screenBreakPoints.xl ? 50 : 40,
+            height: width > screenBreakPoints.xl ? 50 : 40,
             backgroundColor: 'white'
           }}>
             <ArrowForwardIosRoundedIcon sx={{ color: '#718EBF', height: 13, width: 13 }} />
           </Fab>
         </div>
-        <div className="mt-[20px] md:mt-[40px]">
-          <div className="flex gap-4 md:gap-8 justify-between items-center">
-            <h5 className="text-[12px] md:text-[16px] text-[#718EBF]">Write Amount</h5>
-            <div className="flex justify-between items-center w-[187px] md:w-[265px] h-[40px] md:h-[50px]">
-              <div className="flex justify-between items-center outline-none p-4 pr-[50px] h-[40px] md:h-[50px] bg-[#EDF1F7] rounded-[50px] text-[#718EBF]">
-                <input onChange={onChangeAmount} value={amount} className="text-[12px] md:text-[16px] max-w-[140px] md:pr-[48px] outline-none bg-[#EDF1F7] text-[#718EBF]" placeholder="Amount" />
+        <div className="mt-[20px] xl:mt-[40px]">
+          <div className="flex gap-4 xl:gap-8 justify-between items-center">
+            <h5 className="text-[12px] xl:text-[16px] text-[#718EBF]">Write Amount</h5>
+            <div className="flex justify-between items-center w-[187px] xl:w-[265px] h-[40px] xl:h-[50px]">
+              <div className="flex justify-between items-center outline-none p-4 pr-[50px] h-[40px] xl:h-[50px] bg-[#EDF1F7] rounded-[50px] text-[#718EBF]">
+                <input onChange={onChangeAmount} value={amount} className="text-[12px] xl:text-[16px] max-w-[140px] xl:pr-[48px] outline-none bg-[#EDF1F7] text-[#718EBF]" placeholder="Amount" />
               </div>
               <Button
                 onClick={sendMoneyHandler}
-                sx={width > screenSizes.tabletMin ? {
+                sx={width > screenBreakPoints.xl ? {
                   height: '50px',
                   width: '125px',
                   fontSize: '16px',
@@ -122,7 +122,7 @@ const QuickTransferComponent = () => {
                 className=" !capitalize !font-semibold !text-[#ffffff] !text-center !rounded-[50px] !bg-[#232323]"
               >
                 Send
-                <SendRoundedIcon className="md:ml-4 ml-2" sx={{ color: '#ffffff', width: 26 }} />
+                <SendRoundedIcon className="xl:ml-4 ml-2" sx={{ color: '#ffffff', width: 26 }} />
               </Button>
             </div>
           </div>

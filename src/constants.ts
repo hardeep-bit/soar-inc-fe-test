@@ -71,9 +71,10 @@ export const userValidations: any = {
   },
 }
 
-export const screenSizes: any = {
-  largeDesktopMin: 1400,
-  smallDesktopMin: 1200,
-  tabletMin: 768,
-  mobileMin: 350,
+export const screenBreakPoints: any = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  twoxl: 1536
 }

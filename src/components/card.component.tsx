@@ -38,7 +38,7 @@ const CardComponent = (props: any) => {
         </div>
         <div className={cardFooterClass}>
           {cardNumber}
-          <img src={cardGroup} alt="cardGroup" className="h-[19px] md:h-[30px]" ></img>
+          <img src={cardGroup} alt="cardGroup" className="h-[19px] xl:h-[30px]" ></img>
         </div>
       </div>
     </div>

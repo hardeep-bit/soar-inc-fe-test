@@ -95,7 +95,7 @@ const BalanceHistoryComponent = () => {
   return (
     <div className="text-gray-700">
       <div className="text-[18px] font-semibold mb-2">
-        <h4 className="md:pt-8 md:pb-4 pb-6 md:pl-2 mt-[-16px] md:mt-[4px]">Balance History</h4>
+        <h4 className="xl:pt-8 xl:pb-4 pb-6 xl:pl-2 mt-[-16px] xl:mt-[4px]">Balance History</h4>
       </div>
       <div id={styles.balanceHistorySection}>
         <Line id="lineGraph" data={data} options={options as object} />

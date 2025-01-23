@@ -94,7 +94,7 @@ const WeeklyActivityComponent = () => {
   return (
     <div className="text-gray-700">
       <div className="text-[18px] font-semibold mb-2">
-        <h4 className="mt-8 md:mt-4 md:mb-6 text-[18px] font-semibold ">Weekly Activity</h4>
+        <h4 className="mt-8 xl:mt-4 xl:mb-6 text-[18px] font-semibold ">Weekly Activity</h4>
       </div>
       <div id={styles.weeklyActivitySection}>
         <Bar data={data} options={options as object} />

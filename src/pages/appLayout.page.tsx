@@ -17,11 +17,11 @@ import styles from "../styles/pages/AppLayout.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { setAppHeight, setAppWidth, setIsNavBarOpen } from '../redux/reducers/app';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
-import { screenSizes } from '../constants';
+import { screenBreakPoints } from '../constants';
 
 
 const AppLayout = () => {
-  const { largeDesktopMin } = screenSizes
+  const { xl } = screenBreakPoints
   const appNavigations = [{
     id: 'dashboard',
     navLabel: 'Dashboard',
@@ -119,12 +119,12 @@ const AppLayout = () => {
     dispatch(setIsNavBarOpen(!isNavBarOpen))
   }
 
-  const isWidthLessThanLargeDesktopMin = width <= largeDesktopMin
+  const isWidthLessThanXL = width <= xl
 
   return (
     <div className="flex h-full w-full">
       <div className='relative'>
-        <nav className={`${styles.navBarCollapsedActive} ${isWidthLessThanLargeDesktopMin ? (isNavBarOpen ? 'w-[250px] absolute bg-white h-full' : 'hidden') : 'w-[250px]'}`}>
+        <nav className={`${styles.navBarCollapsedActive} ${isWidthLessThanXL ? (isNavBarOpen ? 'w-[250px] absolute bg-white h-full' : 'hidden') : 'w-[250px]'}`}>
           <div className='flex py-4 justify-center items-center h-[100px]'>
             <h1 className='text-[25px] font-extrabold text-gray-700 '>
               <AssignmentTurnedInIcon sx={{ fontSize: 30 }} className='mt-[-4px] text-primary' />
@@ -146,14 +146,13 @@ const AppLayout = () => {
             ))}
           </div>
         </nav>
-        {isWidthLessThanLargeDesktopMin && isNavBarOpen &&
+        {isWidthLessThanXL && isNavBarOpen &&
           <CancelRoundedIcon className='z-[1] cursor-pointer text-primary absolute left-[238px] top-[3px] !bg-white' onClick={navBarHandler} />
         }
       </div>
-
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main id={styles.appLayout} className={`py-0 pb-8 px-4 md:px-8 overflow-y-auto ${isWidthLessThanLargeDesktopMin ? 'md:flex md:justify-center md:items-center' : ''}`}>
+        <main className={`xl:bg-[#f5f7fa] bg-white py-0 pb-8 px-4 xl:px-8 overflow-y-auto ${isWidthLessThanXL ? 'xl:flex xl:justify-center xl:items-center' : ''}`}>
           <Outlet />
         </main>
       </div>
