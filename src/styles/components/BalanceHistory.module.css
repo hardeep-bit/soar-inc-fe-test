@@ -1,4 +1,4 @@
 #balanceHistorySection {
-  @apply xl:bg-white ml-2 xl:p-6 w-[325px] h-[223px] xl:w-[620px] xl:h-[276px] flex justify-center;
+  @apply xl:bg-white ml-2 xl:p-6 w-[325px] h-[223px] xl:w-[635px] xl:h-[276px] flex justify-center;
   border-radius: 15px;
 }
