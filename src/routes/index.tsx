@@ -1,8 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import DashboardPage from "../pages/dashboard.page";
-import SettingsPage from "../pages/settings.page";
-import AppLayoutPage from "../pages/appLayout.page";
-import CardsPage from "../pages/cards.page";
+import { lazy } from "react";
+
+//@ts-ignore
+const DashboardPage = lazy(() => import('../pages/dashboard.page'))
+//@ts-ignore
+const AppLayoutPage = lazy(() => import('../pages/appLayout.page'))
+//@ts-ignore
+const SettingsPage = lazy(() => import('../pages/settings.page'))
+//@ts-ignore
+const CardsPage = lazy(() => import('../pages/cards.page'))
 
 const AppRoutes = () => {
   return (

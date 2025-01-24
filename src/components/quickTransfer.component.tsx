@@ -58,8 +58,9 @@ const QuickTransferComponent = () => {
   }
 
   const sendMoneyHandler = () => {
-    const newUuid = uuidv4();
+    if(!amount) return
 
+    const newUuid = uuidv4();
     dispatch(addToRecentTransactions({
       id: newUuid,
       action: 'debit',

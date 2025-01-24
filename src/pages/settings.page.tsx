@@ -54,7 +54,7 @@ const Settings = () => {
               <Tab
                 key={item.value}
                 sx={{ textTransform: 'none' }}
-                className={item.value === activeTab ? '!font-medium !text-primary' : '!text-[#718EBF]'}
+                className={item.value === activeTab ? '!font-medium !text-primary !px-[20px]' : '!text-[#718EBF] !px-[25px]'}
                 label={item.label}
                 value={item.value}
               />
@@ -69,7 +69,7 @@ const Settings = () => {
   )
 
   return (
-    <div className='my-2 xl:mx-4 pt-[10px] xl:p-[30px] bg-white rounded-[25px]'>
+    <div className='my-2 xl:my-12 xl:mx-4 pt-[10px]  xl:p-[30px] bg-white rounded-[25px]'>
       {renderTabsView}
     </div>
   )

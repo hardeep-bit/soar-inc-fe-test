@@ -175,7 +175,7 @@ const AppLayout = () => {
       {renderLeftNaigationView}
       <div className="flex-1 flex flex-col">
         <HeaderComponent activeAppNavigation={activeAppNavigation} />
-        <main className={`xl:bg-[#f5f7fa] bg-white py-0 pb-8 px-4 xl:px-8 overflow-y-auto ${isWidthLessThanXL ? 'xl:flex xl:justify-center xl:items-center' : ''}`}>
+        <main className={`xl:bg-[#f5f7fa] bg-white py-0 pb-8 pl-4 pr-0 xl:px-8 overflow-y-auto ${isWidthLessThanXL ? 'xl:flex xl:justify-center xl:items-center' : ''}`}>
           <Outlet />
         </main>
       </div>
