@@ -1,14 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { lazy } from "react";
 
-//@ts-ignore
 const DashboardPage = lazy(() => import('../pages/dashboard.page'))
-//@ts-ignore
 const AppLayoutPage = lazy(() => import('../pages/appLayout.page'))
-//@ts-ignore
 const SettingsPage = lazy(() => import('../pages/settings.page'))
-//@ts-ignore
 const CardsPage = lazy(() => import('../pages/cards.page'))
+const NotFoundPage = lazy(() => import('../pages/notfound.page'))
 
 const AppRoutes = () => {
   return (
@@ -18,6 +15,7 @@ const AppRoutes = () => {
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="cards" element={<CardsPage />} />
         <Route path="setting" element={<SettingsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
 
