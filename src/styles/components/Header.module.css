@@ -36,7 +36,7 @@
 }
 
 #avatarIcon {
-  margin-left: 20px;
+  @apply xl:ml-[20px];
   border-radius: 50%;
   border: 2px solid #f5f7fa;
   cursor: pointer;
