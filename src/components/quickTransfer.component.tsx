@@ -4,38 +4,14 @@ import { v4 as uuidv4 } from 'uuid';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 // @ts-ignore
 import styles from "../styles/components/QuickTransfer.module.css";
-import { getCurrentFormattedDate, truncateString } from "../helpers/utility";
+import { getCurrentFormattedDate } from "../helpers/utility";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import { useDispatch, useSelector } from "react-redux";
 import { addToRecentTransactions } from "../redux/reducers/transaction";
 import { screenBreakPoints } from "../constants";
 
-const QuickUserHeadView = (props: any) => {
-  const { user, index, onChangeActiveMessageToUserIndex, activeMessageToUserIndex } = props;
-  const width = useSelector((state: any) => state.app.width);
-
-  return (
-    <div className={`cursor-pointer text-center justify-center ${activeMessageToUserIndex === index ? 'font-bold' : ''}`} onClick={() => onChangeActiveMessageToUserIndex(index)}>
-      <div className="text-center justify-center flex">
-        <Avatar
-          className={styles.avatarIcon}
-          alt={user.name}
-          src={user.displayPicture320pxURL}
-          sx={{
-            width: width > screenBreakPoints.xl ? '70px' : '50px',
-            height: width > screenBreakPoints.xl ? '70px' : '50px',
-          }}
-        />
-      </div>
-      <h5 className="text-[12px] xl:text-[16px] text-[#232323] text-center line-clamp-1">
-        {truncateString(user.name)}
-      </h5>
-      <h6 className="text-[12px] xl:text-[15px] text-[#718EBF] text-center line-clamp-1">
-        {truncateString(user.position)}
-      </h6>
-    </div>
-  )
-}
+// Lazy load the QuickUserHeadView component
+const QuickUserHeadView = React.lazy(() => import("./quickUserHeadView.component"));
 
 const QuickTransferComponent = () => {
   const loginUser = useSelector((state: any) => state.user.loginUser);

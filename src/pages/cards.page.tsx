@@ -30,7 +30,6 @@ const CardsPage = () => {
     navigate(-1);
   }
 
-
   return (
     <div>
       <div className='flex justify-between py-8'>

@@ -107,8 +107,6 @@ const EditProfileComponent = () => {
       isErrorFound = true
     }
 
-    console.log('isErrorFound, isErrorFound,', isErrorFound);
-
     setIsErrorFound(isErrorFound)
   }
 
@@ -179,7 +177,6 @@ const EditProfileComponent = () => {
     const label = event.target?.getAttribute("aria-label");
     const anyError = validateField(id, value, label)
 
-    debugger
     if (id === 'name') {
       setNameDetails({
         value,
@@ -257,9 +254,20 @@ const EditProfileComponent = () => {
   const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
+      const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+      const maxSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+      if (!validTypes.includes(file.type)) {
+        alert('Only PNG, JPEG, or JPG files are allowed.');
+        return;
+      }
+
+      if (file.size > maxSize) {
+        alert('File size must be less than 5MB.');
+        return;
+      }
 
       const preview = URL.createObjectURL(file);
-      debugger
       setPreviewUrl(preview as any);
     }
   };
