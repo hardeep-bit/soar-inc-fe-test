@@ -7,6 +7,7 @@ import MoneyIcon from '@mui/icons-material/Money';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { useSelector } from "react-redux";
 import { formatDate } from "../helpers/utility";
+import React from "react";
 
 const TransactionListComponent = () => {
   const recentTransactions = useSelector((state: any) => state.transaction.recentTransactions);
@@ -67,5 +68,5 @@ const TransactionListComponent = () => {
   )
 };
 
-export default TransactionListComponent;
+export default React.memo(TransactionListComponent);
 

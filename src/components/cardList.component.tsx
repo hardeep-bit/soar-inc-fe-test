@@ -1,5 +1,4 @@
-//@ts-ignore
-// import styles from "../styles/components/Card.module.css";
+import React from "react";
 import { useSelector } from "react-redux";
 import CardComponent from "./card.component";
 import { Button } from "@mui/material";
@@ -25,7 +24,7 @@ const CardListComponent = () => {
       </div>
     );
   }
-  
+
   return (
     <div className="flex flex-col w-full xl:w-auto">
       <div className="flex flex-col">
@@ -55,4 +54,4 @@ const CardListComponent = () => {
   );
 }
 
-export default CardListComponent;
+export default React.memo(CardListComponent);

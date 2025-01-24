@@ -1,6 +1,6 @@
 //@ts-ignore
 import styles from "../styles/components/Header.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import NotificationAddOutlinedIcon from '@mui/icons-material/NotificationAddOutlined';
@@ -107,4 +107,4 @@ const HeaderComponent = (props: any) => {
   return (width > screenBreakPoints.xl ? renderDeskTopView : renderMobileView)
 }
 
-export default HeaderComponent;
+export default React.memo(HeaderComponent);

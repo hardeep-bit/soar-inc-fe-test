@@ -103,4 +103,4 @@ const WeeklyActivityComponent = () => {
   );
 };
 
-export default WeeklyActivityComponent;
+export default React.memo(WeeklyActivityComponent);

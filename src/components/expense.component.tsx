@@ -72,4 +72,4 @@ const ExpensePieChart = () => {
   );
 };
 
-export default ExpensePieChart;
+export default React.memo(ExpensePieChart);

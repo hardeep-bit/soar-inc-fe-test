@@ -1,5 +1,5 @@
 import { Avatar, Button, Fab } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 // @ts-ignore
@@ -58,7 +58,7 @@ const QuickTransferComponent = () => {
   }
 
   const sendMoneyHandler = () => {
-    if(!amount) return
+    if (!amount) return
 
     const newUuid = uuidv4();
     dispatch(addToRecentTransactions({
@@ -135,4 +135,4 @@ const QuickTransferComponent = () => {
   )
 }
 
-export default QuickTransferComponent;
+export default React.memo(QuickTransferComponent);

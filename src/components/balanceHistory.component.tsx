@@ -104,4 +104,4 @@ const BalanceHistoryComponent = () => {
   );
 };
 
-export default BalanceHistoryComponent;
+export default React.memo(BalanceHistoryComponent);

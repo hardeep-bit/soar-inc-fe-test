@@ -5,6 +5,7 @@ import styles from "../styles/components/Card.module.css";
 import cardChip from "../assets/images/cardChip.png";
 //@ts-ignore
 import cardGroup from "../assets/images/cardGroup.png";
+import React from "react";
 
 const CardComponent = (props: any) => {
   const { cardDetails } = props;
@@ -43,4 +44,4 @@ const CardComponent = (props: any) => {
   );
 }
 
-export default CardComponent;
+export default React.memo(CardComponent);

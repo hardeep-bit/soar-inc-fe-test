@@ -1,7 +1,7 @@
 import { Avatar, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from '@mui/icons-material/Edit';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { validateField } from "../helpers/utility";
 import { screenBreakPoints } from "../constants";
 import { setUser } from "../redux/reducers/user";
@@ -476,4 +476,4 @@ const EditProfileComponent = () => {
   );
 }
 
-export default EditProfileComponent;
+export default React.memo(EditProfileComponent);
