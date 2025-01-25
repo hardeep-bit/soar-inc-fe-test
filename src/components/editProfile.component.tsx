@@ -321,7 +321,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={nameDetails.value}
             />
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {nameDetails.error || ''}
             </p>
           </div>
@@ -336,7 +336,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={usernameDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {usernameDetails.error || ''}
             </p>
           </div>
@@ -353,7 +353,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={mailDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {mailDetails.error || ''}
             </p>
           </div>
@@ -368,7 +368,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={passwordDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {passwordDetails.error === "Password is invalid." ?
                 <span>It requires min, 3 lower case alphabets, 1 upper Case alphabet, 1 special character from !@$</span> :
                 <span>{passwordDetails.error}</span>}
@@ -386,7 +386,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={dobDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {dobDetails.error || ''}
             </p>
           </div>
@@ -401,7 +401,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={presentAddressDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {presentAddressDetails.error || ''}
             </p>
           </div>
@@ -418,7 +418,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={permanentAddressDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {permanentAddressDetails.error || ''}
             </p>
           </div>
@@ -433,7 +433,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={cityDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {cityDetails.error || ''}
             </p>
           </div>
@@ -450,7 +450,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={postalCodeDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {postalCodeDetails.error || ''}
             </p>
           </div>
@@ -465,7 +465,7 @@ const EditProfileComponent = () => {
               onChange={onChangeHandler}
               value={countryDetails.value}>
             </input>
-            <p className="text-red-500 text-[12px] h-[14px] mt-[3px]">
+            <p className="text-red-500 text-[12px] min-h-[14px] mt-[3px]">
               {countryDetails.error || ''}
             </p>
           </div>
