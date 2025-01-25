@@ -11,10 +11,12 @@ import {
 } from "chart.js";
 // @ts-ignore
 import styles from "../styles/components/BalanceHistory.module.css";
+import { useSelector } from "react-redux";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
 const BalanceHistoryComponent = () => {
+  const balanceHistory = useSelector((state: any) => state.balance.balanceHistory);
   const colors = {
     purple: {
       default: "#1814F3",
@@ -30,10 +32,10 @@ const BalanceHistoryComponent = () => {
   };
 
   const data = {
-    labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    labels: Object.keys(balanceHistory),
     datasets: [
       {
-        data: [33, 53, 85, 41, 44, 65, 43, 53, 85, 41, 44, 65],
+        data: Object.values(balanceHistory),
         tension: 0.5,
         borderColor: "#1814F3",
         pointRadius: 0,
@@ -91,6 +93,14 @@ const BalanceHistoryComponent = () => {
       },
     },
   };
+
+  if (Object.keys(balanceHistory).length === 0) {
+    return (
+      <div>
+        <h1>No Balance History found</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="text-gray-700">

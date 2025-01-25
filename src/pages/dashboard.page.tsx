@@ -13,6 +13,7 @@ import BalanceHistoryComponent from '../components/balanceHistory.component';
 import { fetchWeeklyActivity } from '../services/activity';
 import { fetchExpensesData } from '../services/expense';
 import WeeklyActivityComponent from '../components/weeklyActivity.component';
+import { fetchbalanceHistoryData } from '../services/balance';
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -27,6 +28,7 @@ const Dashboard = () => {
     dispatch(fetchExpensesData())
     dispatch(fetchWeeklyActivity())
     dispatch(fetchTransferToList(3))
+    dispatch(fetchbalanceHistoryData())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
